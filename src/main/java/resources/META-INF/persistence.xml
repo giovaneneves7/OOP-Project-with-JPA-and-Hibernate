@@ -1,0 +1,29 @@
+<persistence version="2.2"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"  
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence   
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    
+    <persistence-unit name="tasks">
+        
+	<jta-data-source>java:/MySqlDS</jta-data-source>
+        
+	<class>entity.Appuser</class>
+                
+	<properties>
+                    
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/mydatabase"/> 
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+            <property name="javax.persistence.jdbc.user" value="root"/> 
+            <property name="javax.persistence.jdbc.password" value="giovane2004"/>
+            <property name="hibernate.show_sql" value = "true" /> 
+            <property name="hibernate.format_sql" value = "true" />
+            <property name="javax.persistence.schema-generation.database.action" value="create"/> 
+            <property name="hibernate.archive.autodetection" value="class"/>
+            
+	</properties> 
+              
+    </persistence-unit>  
+        
+</persistence>
