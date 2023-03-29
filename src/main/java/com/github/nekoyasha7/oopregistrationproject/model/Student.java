@@ -24,6 +24,7 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
     private String name;
     private String registrationNumber;
     private float[] grades = new float[3];
