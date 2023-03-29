@@ -2,6 +2,7 @@
 package com.github.nekoyasha7.oopregistrationproject;
 
 import com.github.nekoyasha7.oopregistrationproject.view.Students_GUI;
+import com.github.nekoyasha7.oopregistrationproject.connection.ConnectionFactory;
 
 /**
  *
@@ -10,6 +11,7 @@ import com.github.nekoyasha7.oopregistrationproject.view.Students_GUI;
 public class OOPRegistrationProject {
 
     public static void main(String[] args) {
+        ConnectionFactory.connect();
         new Students_GUI().setVisible(true);
     }
 }
