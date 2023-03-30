@@ -17,17 +17,17 @@ public class ConnectionFactory {
     
     //----------------------------------------------{ GETTERS AND SETTERS}----------------------------------------------//
 
-    public static EntityManager getEntityManager() {
+    public EntityManager getEntityManager() {
         return entityManager;
     }
 
-    public static void setEntityManager(EntityManager entityManager) {
+    public void setEntityManager(EntityManager entityManager) {
         ConnectionFactory.entityManager = entityManager;
     }
 
     //----------------------------------------------{ METHODS }----------------------------------------------//
     
-    public static void connect(){
+    public void connect(){
         
         try{
             
@@ -36,7 +36,6 @@ public class ConnectionFactory {
             System.out.println("Connnection success!");
             
         } catch(javax.persistence.PersistenceException ex){
-            System.out.println("1");
             ex.printStackTrace();
         } catch(Exception ex){
             

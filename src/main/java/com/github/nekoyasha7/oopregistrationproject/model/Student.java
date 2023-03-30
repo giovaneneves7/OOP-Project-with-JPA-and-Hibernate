@@ -14,7 +14,6 @@ import javax.persistence.GenerationType;
  *
  * @author GiovaneNeves
  */
-
 @Entity
 @Table (name = "students")
 public class Student {

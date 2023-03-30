@@ -13,6 +13,7 @@ public class Students_GUI extends javax.swing.JFrame {
     StudentsTableModel tableModel = new StudentsTableModel();
     
     public Students_GUI() {
+
         initComponents();
     
         this.jTblStudents.setModel(tableModel);
