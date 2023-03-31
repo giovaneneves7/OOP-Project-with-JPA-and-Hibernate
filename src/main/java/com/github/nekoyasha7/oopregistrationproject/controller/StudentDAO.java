@@ -65,7 +65,7 @@ public class StudentDAO {
         boolean wasRemoved = false;
         EntityManager entityManager = connectionFactory.getEntityManager();
 
-        Student studentToBeRemoved = findById(id);
+        Student studentToBeRemoved = entityManager.find(Student.class, id);
 
         if(studentToBeRemoved != null){
 
