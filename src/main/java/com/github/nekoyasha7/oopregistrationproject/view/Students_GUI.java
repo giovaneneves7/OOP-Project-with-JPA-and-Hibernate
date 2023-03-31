@@ -45,6 +45,8 @@ public class Students_GUI extends javax.swing.JFrame {
         jBtnHomeScreen = new javax.swing.JButton();
         jBtnAddNewEntry = new javax.swing.JButton();
         jBtnClose = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -113,9 +115,9 @@ public class Students_GUI extends javax.swing.JFrame {
         jBtnHomeScreen.setBackground(new java.awt.Color(255, 139, 73));
         jBtnHomeScreen.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jBtnHomeScreen.setForeground(new java.awt.Color(255, 255, 255));
-        jBtnHomeScreen.setText("H");
+        jBtnHomeScreen.setText("Home");
         jPnlBackground.add(jBtnHomeScreen);
-        jBtnHomeScreen.setBounds(10, 140, 60, 40);
+        jBtnHomeScreen.setBounds(10, 270, 60, 40);
 
         jBtnAddNewEntry.setBackground(new java.awt.Color(255, 139, 73));
         jBtnAddNewEntry.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -139,7 +141,22 @@ public class Students_GUI extends javax.swing.JFrame {
             }
         });
         jPnlBackground.add(jBtnClose);
-        jBtnClose.setBounds(10, 190, 60, 40);
+        jBtnClose.setBounds(10, 320, 60, 40);
+
+        btnDelete.setBackground(new java.awt.Color(255, 139, 73));
+        btnDelete.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setText("Delete");
+        jPnlBackground.add(btnDelete);
+        btnDelete.setBounds(10, 190, 60, 40);
+
+        btnEdit.setBackground(new java.awt.Color(255, 139, 73));
+        btnEdit.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Asmodeus di Laplace.png"))); // NOI18N
+        btnEdit.setText("edit");
+        jPnlBackground.add(btnEdit);
+        btnEdit.setBounds(10, 140, 60, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -219,6 +236,8 @@ public class Students_GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnEdit;
     private javax.swing.JButton jBtnAddNewEntry;
     private javax.swing.JButton jBtnClose;
     private javax.swing.JButton jBtnHomeScreen;
