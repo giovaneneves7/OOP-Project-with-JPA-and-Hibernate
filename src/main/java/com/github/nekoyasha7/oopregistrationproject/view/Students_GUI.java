@@ -1,5 +1,6 @@
 package com.github.nekoyasha7.oopregistrationproject.view;
 
+import com.github.nekoyasha7.oopregistrationproject.controller.StudentDAO;
 import com.github.nekoyasha7.oopregistrationproject.model.StudentsTableModel;
 
 import javax.swing.JOptionPane;
@@ -15,7 +16,10 @@ public class Students_GUI extends javax.swing.JFrame {
     public Students_GUI() {
 
         initComponents();
-    
+
+        StudentDAO studentDAO = new StudentDAO();
+        tableModel.getStudentList().add(studentDAO.findById(1));
+
         this.jTblStudents.setModel(tableModel);
         
         
