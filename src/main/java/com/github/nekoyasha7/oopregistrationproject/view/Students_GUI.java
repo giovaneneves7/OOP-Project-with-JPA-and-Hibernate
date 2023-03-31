@@ -33,22 +33,27 @@ public class Students_GUI extends javax.swing.JFrame {
         jPnlBackground = new javax.swing.JPanel();
         jPnlBackgroundTopMenu = new javax.swing.JPanel();
         jBtnMinimize = new javax.swing.JButton();
-        jBtnClose = new javax.swing.JButton();
         jPnlBackgroundOptionsMenu = new javax.swing.JPanel();
-        jBtnAddNewEntry = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jBtnHomeScreen = new javax.swing.JButton();
+        lblOptions = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTblStudents = new javax.swing.JTable();
+        jBtnHomeScreen = new javax.swing.JButton();
+        jBtnAddNewEntry = new javax.swing.JButton();
+        jBtnClose = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
+        jPnlBackground.setBackground(new java.awt.Color(255, 255, 255));
         jPnlBackground.setLayout(null);
 
-        jPnlBackgroundTopMenu.setBackground(new java.awt.Color(204, 204, 204));
+        jPnlBackgroundTopMenu.setBackground(new java.awt.Color(255, 255, 255));
         jPnlBackgroundTopMenu.setLayout(null);
 
+        jBtnMinimize.setBackground(new java.awt.Color(255, 139, 73));
+        jBtnMinimize.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jBtnMinimize.setForeground(new java.awt.Color(255, 255, 255));
         jBtnMinimize.setText("-");
         jBtnMinimize.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,43 +61,35 @@ public class Students_GUI extends javax.swing.JFrame {
             }
         });
         jPnlBackgroundTopMenu.add(jBtnMinimize);
-        jBtnMinimize.setBounds(510, 10, 40, 22);
-
-        jBtnClose.setText("X");
-        jBtnClose.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnCloseActionPerformed(evt);
-            }
-        });
-        jPnlBackgroundTopMenu.add(jBtnClose);
-        jBtnClose.setBounds(560, 10, 50, 22);
+        jBtnMinimize.setBounds(530, 10, 80, 20);
 
         jPnlBackground.add(jPnlBackgroundTopMenu);
         jPnlBackgroundTopMenu.setBounds(10, 0, 620, 40);
 
-        jPnlBackgroundOptionsMenu.setBackground(new java.awt.Color(153, 153, 153));
+        jPnlBackgroundOptionsMenu.setBackground(new java.awt.Color(255, 139, 73));
         jPnlBackgroundOptionsMenu.setLayout(null);
 
-        jBtnAddNewEntry.setText("+");
-        jBtnAddNewEntry.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1.setText("Pesquisar");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnAddNewEntryActionPerformed(evt);
+                jTextField1ActionPerformed(evt);
             }
         });
-        jPnlBackgroundOptionsMenu.add(jBtnAddNewEntry);
-        jBtnAddNewEntry.setBounds(271, 6, 67, 28);
-
-        jTextField1.setText("Pesquisar");
         jPnlBackgroundOptionsMenu.add(jTextField1);
-        jTextField1.setBounds(21, 9, 150, 22);
+        jTextField1.setBounds(91, 9, 530, 30);
 
-        jBtnHomeScreen.setText("HOMESCREEN");
-        jPnlBackgroundOptionsMenu.add(jBtnHomeScreen);
-        jBtnHomeScreen.setBounds(435, 10, 140, 22);
+        lblOptions.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblOptions.setForeground(new java.awt.Color(255, 255, 255));
+        lblOptions.setText("Options");
+        jPnlBackgroundOptionsMenu.add(lblOptions);
+        lblOptions.setBounds(10, 10, 70, 17);
 
         jPnlBackground.add(jPnlBackgroundOptionsMenu);
         jPnlBackgroundOptionsMenu.setBounds(10, 40, 620, 40);
 
+        jTblStudents.setBackground(new java.awt.Color(255, 139, 73));
+        jTblStudents.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jTblStudents.setForeground(new java.awt.Color(255, 255, 255));
         jTblStudents.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -107,7 +104,38 @@ public class Students_GUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTblStudents);
 
         jPnlBackground.add(jScrollPane1);
-        jScrollPane1.setBounds(30, 100, 550, 250);
+        jScrollPane1.setBounds(100, 90, 530, 270);
+
+        jBtnHomeScreen.setBackground(new java.awt.Color(255, 139, 73));
+        jBtnHomeScreen.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jBtnHomeScreen.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnHomeScreen.setText("H");
+        jPnlBackground.add(jBtnHomeScreen);
+        jBtnHomeScreen.setBounds(10, 140, 60, 40);
+
+        jBtnAddNewEntry.setBackground(new java.awt.Color(255, 139, 73));
+        jBtnAddNewEntry.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jBtnAddNewEntry.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnAddNewEntry.setText("+");
+        jBtnAddNewEntry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAddNewEntryActionPerformed(evt);
+            }
+        });
+        jPnlBackground.add(jBtnAddNewEntry);
+        jBtnAddNewEntry.setBounds(10, 90, 60, 40);
+
+        jBtnClose.setBackground(new java.awt.Color(255, 139, 73));
+        jBtnClose.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jBtnClose.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnClose.setText("X");
+        jBtnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnCloseActionPerformed(evt);
+            }
+        });
+        jPnlBackground.add(jBtnClose);
+        jBtnClose.setBounds(10, 190, 60, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,6 +171,10 @@ public class Students_GUI extends javax.swing.JFrame {
         
         new AddStudent_GUI().setVisible(true);
     }//GEN-LAST:event_jBtnAddNewEntryActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,5 +225,6 @@ public class Students_GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTblStudents;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblOptions;
     // End of variables declaration//GEN-END:variables
 }
