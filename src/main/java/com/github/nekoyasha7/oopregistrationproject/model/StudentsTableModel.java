@@ -62,10 +62,10 @@ public class StudentsTableModel extends AbstractTableModel{
                 return this.getStudentList().get(rowIndex).getRegistrationNumber();
             case 2:
                 return this.getStudentList().get(rowIndex).getAverageGrades();
-            case 3:
+            /*case 3:
                 return new JButton("Delete");
             case 4:
-                return new JButton("Edit");
+                return new JButton("Edit");*/
         }
         
         return null;

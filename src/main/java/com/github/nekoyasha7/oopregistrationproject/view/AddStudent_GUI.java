@@ -1,6 +1,8 @@
 package com.github.nekoyasha7.oopregistrationproject.view;
 
 //--+ Imports +--//
+import com.github.nekoyasha7.oopregistrationproject.controller.StudentDAO;
+import com.github.nekoyasha7.oopregistrationproject.model.Student;
 import javax.swing.JOptionPane;
 //--+ END Imports +--//
 
@@ -30,21 +32,26 @@ public class AddStudent_GUI extends javax.swing.JFrame {
         jPnlBackgroundTopMenu = new javax.swing.JPanel();
         jBtnMinimize = new javax.swing.JButton();
         jBtnClose = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        btnRegister = new javax.swing.JButton();
+        txtGrade1 = new javax.swing.JTextField();
+        txtGrade2 = new javax.swing.JTextField();
         txtGrade3 = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         txtRegistrationNumber = new javax.swing.JTextField();
-        txtGrade1 = new javax.swing.JTextField();
-        txtGrade2 = new javax.swing.JTextField();
-        btnRegister = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jPnlBackground.setLayout(null);
 
-        jPnlBackgroundTopMenu.setBackground(new java.awt.Color(204, 204, 204));
+        jPnlBackgroundTopMenu.setBackground(new java.awt.Color(255, 255, 255));
         jPnlBackgroundTopMenu.setLayout(null);
 
+        jBtnMinimize.setBackground(new java.awt.Color(255, 139, 73));
+        jBtnMinimize.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jBtnMinimize.setForeground(new java.awt.Color(255, 255, 255));
         jBtnMinimize.setText("-");
         jBtnMinimize.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,8 +59,10 @@ public class AddStudent_GUI extends javax.swing.JFrame {
             }
         });
         jPnlBackgroundTopMenu.add(jBtnMinimize);
-        jBtnMinimize.setBounds(510, 10, 40, 22);
+        jBtnMinimize.setBounds(510, 10, 40, 23);
 
+        jBtnClose.setBackground(new java.awt.Color(255, 139, 73));
+        jBtnClose.setForeground(new java.awt.Color(255, 255, 255));
         jBtnClose.setText("X");
         jBtnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,34 +75,93 @@ public class AddStudent_GUI extends javax.swing.JFrame {
         jPnlBackground.add(jPnlBackgroundTopMenu);
         jPnlBackgroundTopMenu.setBounds(10, 0, 620, 40);
 
-        txtGrade3.setText("Grade 03");
-        jPnlBackground.add(txtGrade3);
-        txtGrade3.setBounds(50, 260, 140, 30);
+        jPanel1.setBackground(new java.awt.Color(255, 139, 73));
 
+        btnRegister.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnRegister.setForeground(new java.awt.Color(255, 139, 73));
+        btnRegister.setText("Register");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
+
+        txtGrade1.setForeground(new java.awt.Color(102, 102, 102));
+        txtGrade1.setText("Grade 01");
+
+        txtGrade2.setForeground(new java.awt.Color(102, 102, 102));
+        txtGrade2.setText("Grade 02");
+
+        txtGrade3.setForeground(new java.awt.Color(102, 102, 102));
+        txtGrade3.setText("Grade 03");
+
+        txtName.setForeground(new java.awt.Color(102, 102, 102));
         txtName.setText("Name");
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
             }
         });
-        jPnlBackground.add(txtName);
-        txtName.setBounds(50, 120, 230, 40);
+        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameKeyTyped(evt);
+            }
+        });
 
+        txtRegistrationNumber.setForeground(new java.awt.Color(102, 102, 102));
         txtRegistrationNumber.setText("Registration Number");
-        jPnlBackground.add(txtRegistrationNumber);
-        txtRegistrationNumber.setBounds(290, 120, 230, 40);
+        txtRegistrationNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRegistrationNumberActionPerformed(evt);
+            }
+        });
 
-        txtGrade1.setText("Grade 01");
-        jPnlBackground.add(txtGrade1);
-        txtGrade1.setBounds(50, 180, 140, 30);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(65, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(txtRegistrationNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(txtGrade3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtGrade2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(39, 39, 39)
+                            .addComponent(txtGrade1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(66, 66, 66))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(237, 237, 237)
+                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(77, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRegistrationNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtGrade1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtGrade2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtGrade3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
+        );
 
-        txtGrade2.setText("Grade 02");
-        jPnlBackground.add(txtGrade2);
-        txtGrade2.setBounds(50, 220, 140, 30);
-
-        btnRegister.setText("Register");
-        jPnlBackground.add(btnRegister);
-        btnRegister.setBounds(210, 310, 140, 50);
+        jPnlBackground.add(jPanel1);
+        jPanel1.setBounds(10, 40, 620, 320);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,6 +196,42 @@ public class AddStudent_GUI extends javax.swing.JFrame {
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
+
+    private void txtRegistrationNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRegistrationNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRegistrationNumberActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        
+        float[] grades = new float[3];
+        
+        grades[0] = Float.parseFloat(txtGrade1.getText());
+        grades[1] = Float.parseFloat(txtGrade2.getText());
+        grades[2] = Float.parseFloat(txtGrade3.getText());
+        
+        float sum = 0;
+        for(float grade : grades)
+            sum += grade;
+        
+        float average = (sum != 0) ? (grades.length / sum) : 0f;
+        
+        Student newStudent = new Student();
+        
+        newStudent.setName(txtName.getText());
+        newStudent.setRegistrationNumber(txtRegistrationNumber.getText());
+        newStudent.setGrades(grades);
+        newStudent.setAverageGrades(average);
+        
+        StudentDAO newRegistration = new StudentDAO();
+        
+        newRegistration.add(newStudent);
+        
+        
+    }//GEN-LAST:event_btnRegisterActionPerformed
+
+    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
+        
+    }//GEN-LAST:event_txtNameKeyTyped
 
     /**
      * @param args the command line arguments
@@ -168,8 +272,10 @@ public class AddStudent_GUI extends javax.swing.JFrame {
     private javax.swing.JButton btnRegister;
     private javax.swing.JButton jBtnClose;
     private javax.swing.JButton jBtnMinimize;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPnlBackground;
     private javax.swing.JPanel jPnlBackgroundTopMenu;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField txtGrade1;
     private javax.swing.JTextField txtGrade2;
     private javax.swing.JTextField txtGrade3;
