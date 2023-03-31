@@ -1,7 +1,7 @@
 package com.github.nekoyasha7.oopregistrationproject.view;
 
 //--+ Imports +--//
-import com.github.nekoyasha7.oopregistrationproject.controller.StudentDAO;
+import com.github.nekoyasha7.oopregistrationproject.dao.StudentDAO;
 import com.github.nekoyasha7.oopregistrationproject.model.Student;
 import javax.swing.JOptionPane;
 //--+ END Imports +--//
