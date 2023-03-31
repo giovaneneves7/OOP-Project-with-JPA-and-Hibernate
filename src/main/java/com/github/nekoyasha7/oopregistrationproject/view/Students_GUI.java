@@ -153,7 +153,6 @@ public class Students_GUI extends javax.swing.JFrame {
         btnEdit.setBackground(new java.awt.Color(255, 139, 73));
         btnEdit.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnEdit.setForeground(new java.awt.Color(255, 255, 255));
-        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Asmodeus di Laplace.png"))); // NOI18N
         btnEdit.setText("edit");
         jPnlBackground.add(btnEdit);
         btnEdit.setBounds(10, 140, 60, 40);
