@@ -1,4 +1,4 @@
-package com.github.nekoyasha7.oopregistrationproject.controller;
+package com.github.nekoyasha7.oopregistrationproject.dao;
 
 //--+ Imports +--//
 import com.github.nekoyasha7.oopregistrationproject.connection.ConnectionFactory;
