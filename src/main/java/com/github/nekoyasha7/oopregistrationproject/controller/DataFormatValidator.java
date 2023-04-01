@@ -1,7 +1,11 @@
 package com.github.nekoyasha7.oopregistrationproject.controller;
 
-import javax.swing.JOptionPane;
+//--+ Imports +--//
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
+import javax.swing.JOptionPane;
+//--+ END Imports +--//
 /**
  *
  * @author GiovaneNeves
@@ -53,5 +57,32 @@ public class DataFormatValidator {
         }
         
         return convertedNumber;
+    }
+    
+    
+    /**
+     * 
+     * @param string to be converted to Local Date.
+     * @return a date in the format MM/DD/YY, and null otherwise.
+     */
+    public static LocalDate convertToLocalDate(String string){
+        
+        if(isNull(string)) return null;
+        
+        LocalDate birthDate;
+        
+        try{
+            
+            birthDate = LocalDate.parse(string);
+            return birthDate;
+            
+        } catch(DateTimeParseException ex){
+            
+            JOptionPane.showMessageDialog(null, "The date format is invalid! Use the format: MM/DD/YYYY.", "Registration!", JOptionPane.ERROR_MESSAGE);
+        
+        }
+        
+        return null;
+        
     }
 }
