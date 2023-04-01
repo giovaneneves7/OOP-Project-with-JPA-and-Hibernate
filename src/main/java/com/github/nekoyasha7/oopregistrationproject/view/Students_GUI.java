@@ -1,6 +1,6 @@
 package com.github.nekoyasha7.oopregistrationproject.view;
 
-import com.github.nekoyasha7.oopregistrationproject.controller.StudentDAO;
+import com.github.nekoyasha7.oopregistrationproject.dao.StudentDAO;
 import com.github.nekoyasha7.oopregistrationproject.model.StudentsTableModel;
 import com.github.nekoyasha7.oopregistrationproject.view.ui.CustomCellRenderer;
 
