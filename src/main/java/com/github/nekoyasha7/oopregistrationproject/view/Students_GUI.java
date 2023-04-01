@@ -48,7 +48,7 @@ public class Students_GUI extends javax.swing.JFrame {
         lblOptions = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTblStudents = new javax.swing.JTable();
-        jBtnHomeScreen = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
         jBtnAddNewEntry = new javax.swing.JButton();
         jBtnClose = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -67,6 +67,8 @@ public class Students_GUI extends javax.swing.JFrame {
         jBtnMinimize.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jBtnMinimize.setForeground(new java.awt.Color(255, 255, 255));
         jBtnMinimize.setText("-");
+        jBtnMinimize.setBorderPainted(false);
+        jBtnMinimize.setFocusPainted(false);
         jBtnMinimize.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnMinimizeActionPerformed(evt);
@@ -118,17 +120,33 @@ public class Students_GUI extends javax.swing.JFrame {
         jPnlBackground.add(jScrollPane1);
         jScrollPane1.setBounds(100, 90, 530, 270);
 
-        jBtnHomeScreen.setBackground(new java.awt.Color(255, 139, 73));
-        jBtnHomeScreen.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jBtnHomeScreen.setForeground(new java.awt.Color(255, 255, 255));
-        jBtnHomeScreen.setText("Home");
-        jPnlBackground.add(jBtnHomeScreen);
-        jBtnHomeScreen.setBounds(10, 270, 60, 40);
+        btnRefresh.setBackground(new java.awt.Color(255, 139, 73));
+        btnRefresh.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btnRefresh.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6kvAMRmc2EoLE1bUda176Uzu45p4gMcy3YRy7jA48x8uq8pl4JKKE_DiETCYS80RiIr-MiR4nogvHoCddZiEBmFEU3120C5BwTD9f3zboGt379Bjfp7KmmDBRpyqqE03o5HDqCP15jJ4UKOcn5YExBXrmBqn5wByhguQB1UI-jhs-Nnvgr5ihhCn4GQ/s16/refresh.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+        jPnlBackground.add(btnRefresh);
+        btnRefresh.setBounds(10, 270, 60, 40);
 
         jBtnAddNewEntry.setBackground(new java.awt.Color(255, 139, 73));
         jBtnAddNewEntry.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jBtnAddNewEntry.setForeground(new java.awt.Color(255, 255, 255));
         jBtnAddNewEntry.setText("+");
+        jBtnAddNewEntry.setFocusPainted(false);
         jBtnAddNewEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnAddNewEntryActionPerformed(evt);
@@ -141,6 +159,8 @@ public class Students_GUI extends javax.swing.JFrame {
         jBtnClose.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jBtnClose.setForeground(new java.awt.Color(255, 255, 255));
         jBtnClose.setText("X");
+        jBtnClose.setBorderPainted(false);
+        jBtnClose.setFocusPainted(false);
         jBtnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnCloseActionPerformed(evt);
@@ -152,14 +172,38 @@ public class Students_GUI extends javax.swing.JFrame {
         btnDelete.setBackground(new java.awt.Color(255, 139, 73));
         btnDelete.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnDelete.setText("Delete");
+        btnDelete.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihC3843m67SQgMVXIJLcaDpi02CJswtTbS5ZD7X4afobE9-Gvj0a1vPkjH9Az428tTG2188FRIIYp99a4T3hfl8yiQVJZ7w-dRrJVOMo1pnkVDvLVYORuTnBAAfkNuXn5tLQ8RTGhWjDTV2TsxJlMdsnHRPUJd2Yd3ZmNZoQlf4TuAQK4d7XTaNDLQyQ/s16/trash-can.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        btnDelete.setBorderPainted(false);
+        btnDelete.setFocusPainted(false);
         jPnlBackground.add(btnDelete);
         btnDelete.setBounds(10, 190, 60, 40);
 
         btnEdit.setBackground(new java.awt.Color(255, 139, 73));
         btnEdit.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnEdit.setForeground(new java.awt.Color(255, 255, 255));
-        btnEdit.setText("edit");
+        btnEdit.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXFz84przDGqKoWKRMedu52xJTYnIHdvb3akNIRegHE8NiXK5B_1TZGkKFIO9JCfy8mJPNChY3s-CMflRGBieiZFDGgMAFuaQnMNeZ66jcujm7eZ7i40Fy1os6o5IzaO1JwDRBNuC5xwE3NN9IY8gFC2e_mcaqxNVMExuOdzqMJgGsOBlIjy2I54ld9A/s16/edit.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        btnEdit.setBorderPainted(false);
+        btnEdit.setFocusPainted(false);
         jPnlBackground.add(btnEdit);
         btnEdit.setBounds(10, 140, 60, 40);
 
@@ -202,6 +246,13 @@ public class Students_GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        
+        new Students_GUI().setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_btnRefreshActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -243,9 +294,9 @@ public class Students_GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton jBtnAddNewEntry;
     private javax.swing.JButton jBtnClose;
-    private javax.swing.JButton jBtnHomeScreen;
     private javax.swing.JButton jBtnMinimize;
     private javax.swing.JPanel jPnlBackground;
     private javax.swing.JPanel jPnlBackgroundOptionsMenu;

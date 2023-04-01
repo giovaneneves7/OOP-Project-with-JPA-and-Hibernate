@@ -75,6 +75,8 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="-"/>
+                <Property name="borderPainted" type="boolean" value="false"/>
+                <Property name="focusPainted" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnMinimizeActionPerformed"/>
@@ -169,7 +171,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jBtnHomeScreen">
+        <Component class="javax.swing.JButton" name="btnRefresh">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="49" green="8b" red="ff" type="rgb"/>
@@ -180,8 +182,13 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Home"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="1" name="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6kvAMRmc2EoLE1bUda176Uzu45p4gMcy3YRy7jA48x8uq8pl4JKKE_DiETCYS80RiIr-MiR4nogvHoCddZiEBmFEU3120C5BwTD9f3zboGt379Bjfp7KmmDBRpyqqE03o5HDqCP15jJ4UKOcn5YExBXrmBqn5wByhguQB1UI-jhs-Nnvgr5ihhCn4GQ/s16/refresh.png"/>
+            </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefreshActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="10" y="270" width="60" height="40"/>
@@ -200,6 +207,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="+"/>
+            <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnAddNewEntryActionPerformed"/>
@@ -222,6 +230,8 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="X"/>
+            <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnCloseActionPerformed"/>
@@ -243,7 +253,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Delete"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="1" name="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihC3843m67SQgMVXIJLcaDpi02CJswtTbS5ZD7X4afobE9-Gvj0a1vPkjH9Az428tTG2188FRIIYp99a4T3hfl8yiQVJZ7w-dRrJVOMo1pnkVDvLVYORuTnBAAfkNuXn5tLQ8RTGhWjDTV2TsxJlMdsnHRPUJd2Yd3ZmNZoQlf4TuAQK4d7XTaNDLQyQ/s16/trash-can.png"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -262,7 +276,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="edit"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="1" name="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXFz84przDGqKoWKRMedu52xJTYnIHdvb3akNIRegHE8NiXK5B_1TZGkKFIO9JCfy8mJPNChY3s-CMflRGBieiZFDGgMAFuaQnMNeZ66jcujm7eZ7i40Fy1os6o5IzaO1JwDRBNuC5xwE3NN9IY8gFC2e_mcaqxNVMExuOdzqMJgGsOBlIjy2I54ld9A/s16/edit.png"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
