@@ -5,6 +5,7 @@ import com.github.nekoyasha7.oopregistrationproject.connection.ConnectionFactory
 import com.github.nekoyasha7.oopregistrationproject.model.Student;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 //--+ END Imports +--//
 
@@ -55,6 +56,15 @@ public class StudentDAO {
         return student;
     }
 
+    public List<Student> listStudents(){
+
+        EntityManager entityManager = connectionFactory.getEntityManager();
+        List<Student> students = entityManager.createQuery("SELECT s FROM Student s", Student.class).getResultList();
+
+
+        return students;
+
+    }
     /**
     *
     * @param id of the student to be removed from the database.
