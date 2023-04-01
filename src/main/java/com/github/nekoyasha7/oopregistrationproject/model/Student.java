@@ -3,6 +3,8 @@ package com.github.nekoyasha7.oopregistrationproject.model;
 //--+ END Package +--//
 
 //--+ Imports +--//
+import java.time.LocalDate;
+        
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
@@ -26,6 +28,8 @@ public class Student {
     
     private String name;
     private String registrationNumber;
+    private LocalDate birthDate;
+    private int academicYear;
     private float[] grades = new float[3];
     private float averageGrades;
     
@@ -56,6 +60,22 @@ public class Student {
         this.registrationNumber = registrationNumber;
     }
 
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setAge(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public int getAcademicYear() {
+        return academicYear;
+    }
+
+    public void setAcademicYear(int academicYear) {
+        this.academicYear = academicYear;
+    }
+    
     public float[] getGrades() {
         return grades;
     }
