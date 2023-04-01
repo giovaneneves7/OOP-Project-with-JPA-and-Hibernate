@@ -2,7 +2,7 @@ package com.github.nekoyasha7.oopregistrationproject.view;
 
 import com.github.nekoyasha7.oopregistrationproject.dao.StudentDAO;
 import com.github.nekoyasha7.oopregistrationproject.model.StudentsTableModel;
-import com.github.nekoyasha7.oopregistrationproject.view.ui.CustomCellRenderer;
+import com.github.nekoyasha7.oopregistrationproject.model.Student;
 
 import javax.swing.JOptionPane;
 
@@ -19,7 +19,13 @@ public class Students_GUI extends javax.swing.JFrame {
         initComponents();
 
         StudentDAO studentDAO = new StudentDAO();
-        tableModel.getStudentList().add(studentDAO.findById(1));
+
+        for(Student student : studentDAO.listStudents()){
+
+            tableModel.getStudentList().add(student);
+
+        }
+
 
         this.jTblStudents.setModel(tableModel);
 
