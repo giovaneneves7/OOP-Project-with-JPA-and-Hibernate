@@ -49,7 +49,7 @@ public class DataFormatValidator {
             
         } catch(NumberFormatException ex){
             
-            JOptionPane.showMessageDialog(null, "Text field with incorrect data types", "Registration!", JOptionPane.ERROR);
+            JOptionPane.showMessageDialog(null, "Text field with incorrect data types", "Registration!", JOptionPane.ERROR_MESSAGE);
         }
         
         return convertedNumber;
