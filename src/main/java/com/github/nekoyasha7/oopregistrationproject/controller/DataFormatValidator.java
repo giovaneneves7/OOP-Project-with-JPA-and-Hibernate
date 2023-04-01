@@ -85,4 +85,28 @@ public class DataFormatValidator {
         return null;
         
     }
+    
+    /**
+     * 
+     * @param string to be converted to int
+     * @return -1 if the string is null or or in a format that cannot be converted to float, or the converted number otherwise.
+     */
+    public static int convertToInt(String string){
+        
+        if(isNull(string)) return -1;
+        
+        int convertedNumber = -1;
+        
+        try{
+            
+            convertedNumber = Integer.parseInt(string);
+            
+        } catch(NumberFormatException ex){
+            
+            JOptionPane.showMessageDialog(null, "Text field with incorrect data types", "Registration!", JOptionPane.ERROR_MESSAGE);
+
+        }
+        
+        return convertedNumber;
+    }
 }
