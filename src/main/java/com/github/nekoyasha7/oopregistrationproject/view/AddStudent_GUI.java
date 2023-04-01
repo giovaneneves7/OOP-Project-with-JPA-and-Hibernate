@@ -4,11 +4,13 @@ package com.github.nekoyasha7.oopregistrationproject.view;
 import com.github.nekoyasha7.oopregistrationproject.dao.StudentDAO;
 import com.github.nekoyasha7.oopregistrationproject.model.Student;
 import com.github.nekoyasha7.oopregistrationproject.controller.DataFormatValidator;
+import java.time.LocalDate;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+import javax.swing.text.MaskFormatter;
 //--+ END Imports +--//
 
 /**
@@ -21,9 +23,25 @@ public class AddStudent_GUI extends javax.swing.JFrame {
      * Creates new form AddStudent_GUI
      */
     public AddStudent_GUI() {
+        
         initComponents();
+        createBirthDateMask();
+        
     }
 
+    public void createBirthDateMask(){
+        MaskFormatter maskBirthDate;
+        
+        try{
+            maskBirthDate = new MaskFormatter("##/##/####");
+        } catch(Exception ex){
+            maskBirthDate = new MaskFormatter();
+        }
+        
+        javax.swing.JFormattedTextField formattedTextField = new javax.swing.JFormattedTextField(maskBirthDate);
+        
+        txtBirthDate.setText(formattedTextField.getValue().toString());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -236,28 +254,47 @@ public class AddStudent_GUI extends javax.swing.JFrame {
         //--+ Checks if text fields are valid +--//
         if(!DataFormatValidator.isNull(textFieldContents)){
             
-            String[] stringGrades = {txtGrade1.getText(), txtGrade2.getText(), txtGrade3.getText()};
-            float[] convertedGrades = new float[stringGrades.length];
-            
-            for(int i = 0; i < stringGrades.length; i++){
+            LocalDate birthDate = DataFormatValidator.convertToLocalDate(txtBirthDate.getText());
+                    
+            //--+ Checks if 'birthDate' are valid. +--//
+            if(birthDate != null){
                 
-                convertedGrades[i] = DataFormatValidator.convertToFloat(stringGrades[i]);
-                if(convertedGrades[i] == -1) return;
+                int academicYear = DataFormatValidator.convertToInt(txtAcademicYear.getText());
+                
+                //--+ Checks if 'academicYear' are valid +--//
+                if(academicYear != -1){
+                    
+                    String[] stringGrades = {txtGrade1.getText(), txtGrade2.getText(), txtGrade3.getText()};
+                    float[] convertedGrades = new float[stringGrades.length];
+
+                    //--+ Converts the note strings to float +--//
+                    for(int i = 0; i < stringGrades.length; i++){
+
+                        convertedGrades[i] = DataFormatValidator.convertToFloat(stringGrades[i]);
+                        if(convertedGrades[i] == -1) return;
+
+                    }
+
+                    //--+ Sets the student's grade point average +--//
+                    float average = (sumUpGrades(convertedGrades) != 0) ? (convertedGrades.length / sumUpGrades(convertedGrades)) : 0;
+
+                    Student newStudent = new Student();
+
+                    newStudent.setName(txtName.getText());
+                    newStudent.setRegistrationNumber(txtRegistrationNumber.getText());
+                    newStudent.setBirthDate(birthDate);
+                    newStudent.setAcademicYear(academicYear);
+                    newStudent.setGrades(convertedGrades);
+                    newStudent.setAverageGrades(average);
+
+                    StudentDAO newRegistration = new StudentDAO();
+
+                    //--+ Registers the new student in the database +--//
+                    newRegistration.add(newStudent);
+                }
                 
             }
-            
-            float average = (sumUpGrades(convertedGrades) != 0) ? (convertedGrades.length / sumUpGrades(convertedGrades)) : 0f;
-            
-            Student newStudent = new Student();
-        
-            newStudent.setName(txtName.getText());
-            newStudent.setRegistrationNumber(txtRegistrationNumber.getText());
-            newStudent.setGrades(convertedGrades);
-            newStudent.setAverageGrades(average);
-        
-            StudentDAO newRegistration = new StudentDAO();
-        
-            newRegistration.add(newStudent);
+                
             
         }
         
