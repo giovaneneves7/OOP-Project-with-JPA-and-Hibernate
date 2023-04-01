@@ -3,6 +3,11 @@ package com.github.nekoyasha7.oopregistrationproject.view;
 //--+ Imports +--//
 import com.github.nekoyasha7.oopregistrationproject.dao.StudentDAO;
 import com.github.nekoyasha7.oopregistrationproject.model.Student;
+import com.github.nekoyasha7.oopregistrationproject.controller.DataFormatValidator;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 //--+ END Imports +--//
 
@@ -203,32 +208,58 @@ public class AddStudent_GUI extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         
-        float[] grades = new float[3];
         
-        grades[0] = Float.parseFloat(txtGrade1.getText());
-        grades[1] = Float.parseFloat(txtGrade2.getText());
-        grades[2] = Float.parseFloat(txtGrade3.getText());
+        String[] textFieldContents = {txtName.getText(), txtRegistrationNumber.getText(), txtGrade1.getText(), txtGrade2.getText(), txtGrade3.getText()};
+                                                   
+        //--+ Checks if text fields are valid +--//
+        if(!DataFormatValidator.isNull(textFieldContents)){
+            
+            String[] stringGrades = {txtGrade1.getText(), txtGrade2.getText(), txtGrade3.getText()};
+            float[] convertedGrades = new float[stringGrades.length];
+            
+            for(int i = 0; i < stringGrades.length; i++){
+                
+                convertedGrades[i] = DataFormatValidator.convertToFloat(stringGrades[i]);
+                if(convertedGrades[i] == -1) return;
+                
+            }
+            
+            float average = (sumUpGrades(convertedGrades) != 0) ? (convertedGrades.length / sumUpGrades(convertedGrades)) : 0f;
+            
+            Student newStudent = new Student();
         
-        float sum = 0;
-        for(float grade : grades)
-            sum += grade;
+            newStudent.setName(txtName.getText());
+            newStudent.setRegistrationNumber(txtRegistrationNumber.getText());
+            newStudent.setGrades(convertedGrades);
+            newStudent.setAverageGrades(average);
         
-        float average = (sum != 0) ? (grades.length / sum) : 0f;
+            StudentDAO newRegistration = new StudentDAO();
         
-        Student newStudent = new Student();
+            newRegistration.add(newStudent);
+            
+        }
         
-        newStudent.setName(txtName.getText());
-        newStudent.setRegistrationNumber(txtRegistrationNumber.getText());
-        newStudent.setGrades(grades);
-        newStudent.setAverageGrades(average);
         
-        StudentDAO newRegistration = new StudentDAO();
         
-        newRegistration.add(newStudent);
         
         
     }//GEN-LAST:event_btnRegisterActionPerformed
 
+    /**
+     * 
+     * @param grades to be that will be added up.
+     * @return of all as grades.
+     */
+    private float sumUpGrades(float[] grades){
+        
+        float sum = 0;
+        
+        for(float grade : grades){
+            sum += grade;
+        }
+        
+        return sum;
+    }
     private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
         
     }//GEN-LAST:event_txtNameKeyTyped
