@@ -116,49 +116,66 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace pref="65" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="txtName" min="-2" pref="230" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="txtRegistrationNumber" min="-2" pref="230" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="68" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jSeparator1" min="-2" pref="486" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="txtGrade3" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txtGrade2" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                  <Component id="txtGrade1" min="-2" pref="149" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="btnRegister" min="-2" pref="140" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="txtName" min="-2" pref="230" max="-2" attributes="0"/>
+                                              <Component id="txtRegistrationNumber" min="-2" pref="230" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtAcademicYear" pref="258" max="32767" attributes="0"/>
+                                              <Component id="txtBirthDate" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="txtGrade1" min="-2" pref="149" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                      <Component id="txtGrade2" min="-2" pref="140" max="-2" attributes="0"/>
+                                      <EmptySpace pref="42" max="32767" attributes="0"/>
+                                      <Component id="txtGrade3" min="-2" pref="140" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="237" max="-2" attributes="0"/>
-                      <Component id="btnRegister" min="-2" pref="140" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="77" max="32767" attributes="0"/>
+                      <EmptySpace pref="35" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtBirthDate" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="txtName" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="txtRegistrationNumber" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtGrade1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtRegistrationNumber" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="txtAcademicYear" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtGrade2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtGrade1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="txtGrade3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnRegister" min="-2" pref="50" max="-2" attributes="0"/>
@@ -171,7 +188,7 @@
             <Component class="javax.swing.JButton" name="btnRegister">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="14" style="1"/>
+                  <Font name="Times New Roman" size="14" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="49" green="8b" red="ff" type="rgb"/>
@@ -184,33 +201,24 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtGrade1">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="66" red="66" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Grade 01"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtGrade2">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="66" red="66" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Grade 02"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtGrade2ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtGrade3">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="66" red="66" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Grade 03"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtName">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="66" red="66" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Name"/>
               </Properties>
               <Events>
@@ -220,9 +228,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtRegistrationNumber">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="66" red="66" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Registration Number"/>
               </Properties>
               <Events>
@@ -230,6 +235,19 @@
               </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator1">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtAcademicYear">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Academic Year"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtBirthDate">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Birth Date"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBirthDateActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -45,6 +45,8 @@ public class AddStudent_GUI extends javax.swing.JFrame {
         txtName = new javax.swing.JTextField();
         txtRegistrationNumber = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
+        txtAcademicYear = new javax.swing.JTextField();
+        txtBirthDate = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -82,7 +84,7 @@ public class AddStudent_GUI extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 139, 73));
 
-        btnRegister.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnRegister.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 139, 73));
         btnRegister.setText("Register");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -91,16 +93,17 @@ public class AddStudent_GUI extends javax.swing.JFrame {
             }
         });
 
-        txtGrade1.setForeground(new java.awt.Color(102, 102, 102));
         txtGrade1.setText("Grade 01");
 
-        txtGrade2.setForeground(new java.awt.Color(102, 102, 102));
         txtGrade2.setText("Grade 02");
+        txtGrade2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGrade2ActionPerformed(evt);
+            }
+        });
 
-        txtGrade3.setForeground(new java.awt.Color(102, 102, 102));
         txtGrade3.setText("Grade 03");
 
-        txtName.setForeground(new java.awt.Color(102, 102, 102));
         txtName.setText("Name");
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,7 +116,6 @@ public class AddStudent_GUI extends javax.swing.JFrame {
             }
         });
 
-        txtRegistrationNumber.setForeground(new java.awt.Color(102, 102, 102));
         txtRegistrationNumber.setText("Registration Number");
         txtRegistrationNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,44 +123,64 @@ public class AddStudent_GUI extends javax.swing.JFrame {
             }
         });
 
+        txtAcademicYear.setText("Academic Year");
+
+        txtBirthDate.setText("Birth Date");
+        txtBirthDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBirthDateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(68, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(txtRegistrationNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(txtGrade3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtGrade2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(39, 39, 39)
-                            .addComponent(txtGrade1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(66, 66, 66))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(237, 237, 237)
-                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(197, 197, 197))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtRegistrationNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtAcademicYear, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                                        .addComponent(txtBirthDate))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtGrade1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35)
+                                .addComponent(txtGrade2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                                .addComponent(txtGrade3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(46, 46, 46))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(77, Short.MAX_VALUE)
+                .addContainerGap(35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtRegistrationNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                    .addComponent(txtBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtGrade1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRegistrationNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAcademicYear, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtGrade2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtGrade1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtGrade3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -264,6 +286,14 @@ public class AddStudent_GUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txtNameKeyTyped
 
+    private void txtBirthDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBirthDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBirthDateActionPerformed
+
+    private void txtGrade2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGrade2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGrade2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -307,6 +337,8 @@ public class AddStudent_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPnlBackground;
     private javax.swing.JPanel jPnlBackgroundTopMenu;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField txtAcademicYear;
+    private javax.swing.JTextField txtBirthDate;
     private javax.swing.JTextField txtGrade1;
     private javax.swing.JTextField txtGrade2;
     private javax.swing.JTextField txtGrade3;
