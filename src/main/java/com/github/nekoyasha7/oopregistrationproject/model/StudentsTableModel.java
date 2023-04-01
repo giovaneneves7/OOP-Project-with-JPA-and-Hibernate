@@ -14,7 +14,7 @@ public class StudentsTableModel extends AbstractTableModel{
     //----------------------------------------------{ ATTRIBUTES }----------------------------------------------//
     
     private List<Student> studentList = new ArrayList<>();
-    private String[] collumns = {"Name", "Registration", "Average grades", "Remove", "Edit"};
+    private String[] collumns = {"ID", "Name", "Registration", "Average grades", "Actions"};
 
     //----------------------------------------------{ GETTERS AND SETTERS}----------------------------------------------//
     public List<Student> getStudentList() {
@@ -57,15 +57,16 @@ public class StudentsTableModel extends AbstractTableModel{
         
         switch(columnIndex){
             case 0:
-                return this.getStudentList().get(rowIndex).getName();
+                return this.getStudentList().get(rowIndex).getId();
             case 1:
-                return this.getStudentList().get(rowIndex).getRegistrationNumber();
+                return this.getStudentList().get(rowIndex).getName();
             case 2:
+                return this.getStudentList().get(rowIndex).getRegistrationNumber();
+            case 3:
                 return this.getStudentList().get(rowIndex).getAverageGrades();
-            /*case 3:
-                return new JButton("Delete");
             case 4:
-                return new JButton("Edit");*/
+                return new JButton("Action");
+
         }
         
         return null;
