@@ -52,7 +52,7 @@ public class Students_GUI extends javax.swing.JFrame {
         jPnlBackgroundTopMenu = new javax.swing.JPanel();
         jBtnMinimize = new javax.swing.JButton();
         jPnlBackgroundOptionsMenu = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        txtSearch = new javax.swing.JTextField();
         lblOptions = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblStudents = new javax.swing.JTable();
@@ -91,14 +91,14 @@ public class Students_GUI extends javax.swing.JFrame {
         jPnlBackgroundOptionsMenu.setBackground(new java.awt.Color(255, 139, 73));
         jPnlBackgroundOptionsMenu.setLayout(null);
 
-        jTextField1.setText("Pesquisar");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtSearch.setText("Search");
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtSearchActionPerformed(evt);
             }
         });
-        jPnlBackgroundOptionsMenu.add(jTextField1);
-        jTextField1.setBounds(91, 9, 530, 30);
+        jPnlBackgroundOptionsMenu.add(txtSearch);
+        txtSearch.setBounds(91, 9, 530, 30);
 
         lblOptions.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblOptions.setForeground(new java.awt.Color(255, 255, 255));
@@ -260,9 +260,9 @@ public class Students_GUI extends javax.swing.JFrame {
         new AddStudent_GUI().setVisible(true);
     }//GEN-LAST:event_jBtnAddNewEntryActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtSearchActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         
@@ -392,8 +392,8 @@ public class Students_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPnlBackgroundOptionsMenu;
     private javax.swing.JPanel jPnlBackgroundTopMenu;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblOptions;
     private javax.swing.JTable tblStudents;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
