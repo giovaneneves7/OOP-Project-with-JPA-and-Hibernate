@@ -39,15 +39,15 @@ public class AddStudent_GUI extends javax.swing.JFrame {
         jBtnMinimize = new javax.swing.JButton();
         jBtnClose = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        txtName = new javax.swing.JTextField();
+        txtRegistrationNumber = new javax.swing.JTextField();
+        txtAcademicYear = new javax.swing.JTextField();
+        txtBirthDate = new javax.swing.JTextField();
         btnRegister = new javax.swing.JButton();
         txtGrade1 = new javax.swing.JTextField();
         txtGrade2 = new javax.swing.JTextField();
         txtGrade3 = new javax.swing.JTextField();
-        txtName = new javax.swing.JTextField();
-        txtRegistrationNumber = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
-        txtAcademicYear = new javax.swing.JTextField();
-        txtBirthDate = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -84,26 +84,10 @@ public class AddStudent_GUI extends javax.swing.JFrame {
         jPnlBackgroundTopMenu.setBounds(10, 0, 620, 40);
 
         jPanel1.setBackground(new java.awt.Color(255, 139, 73));
+        jPanel1.setLayout(null);
 
-        btnRegister.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnRegister.setForeground(new java.awt.Color(255, 139, 73));
-        btnRegister.setText("Register");
-        btnRegister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterActionPerformed(evt);
-            }
-        });
-
-        txtGrade1.setText("Grade 01");
-
-        txtGrade2.setText("Grade 02");
-        txtGrade2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGrade2ActionPerformed(evt);
-            }
-        });
-
-        txtGrade3.setText("Grade 03");
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
 
         txtName.setText("Name");
         txtName.addActionListener(new java.awt.event.ActionListener() {
@@ -116,6 +100,8 @@ public class AddStudent_GUI extends javax.swing.JFrame {
                 txtNameKeyTyped(evt);
             }
         });
+        jPanel2.add(txtName);
+        txtName.setBounds(60, 20, 230, 30);
 
         txtRegistrationNumber.setText("Registration Number");
         txtRegistrationNumber.addActionListener(new java.awt.event.ActionListener() {
@@ -123,8 +109,12 @@ public class AddStudent_GUI extends javax.swing.JFrame {
                 txtRegistrationNumberActionPerformed(evt);
             }
         });
+        jPanel2.add(txtRegistrationNumber);
+        txtRegistrationNumber.setBounds(60, 60, 230, 40);
 
         txtAcademicYear.setText("Academic Year");
+        jPanel2.add(txtAcademicYear);
+        txtAcademicYear.setBounds(60, 110, 230, 30);
 
         txtBirthDate.setText("Birth Date");
         txtBirthDate.addActionListener(new java.awt.event.ActionListener() {
@@ -132,61 +122,39 @@ public class AddStudent_GUI extends javax.swing.JFrame {
                 txtBirthDateActionPerformed(evt);
             }
         });
+        jPanel2.add(txtBirthDate);
+        txtBirthDate.setBounds(60, 150, 230, 40);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(197, 197, 197))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtRegistrationNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtAcademicYear, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-                                        .addComponent(txtBirthDate))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtGrade1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
-                                .addComponent(txtGrade2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                                .addComponent(txtGrade3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(46, 46, 46))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRegistrationNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAcademicYear, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtGrade2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtGrade1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtGrade3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
-        );
+        btnRegister.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnRegister.setForeground(new java.awt.Color(255, 139, 73));
+        btnRegister.setText("Register");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnRegister);
+        btnRegister.setBounds(100, 230, 140, 50);
+
+        txtGrade1.setText("Grade 01");
+        jPanel2.add(txtGrade1);
+        txtGrade1.setBounds(60, 200, 64, 20);
+
+        txtGrade2.setText("Grade 02");
+        txtGrade2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGrade2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtGrade2);
+        txtGrade2.setBounds(140, 200, 70, 20);
+
+        txtGrade3.setText("Grade 03");
+        jPanel2.add(txtGrade3);
+        txtGrade3.setBounds(220, 200, 70, 20);
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(140, 20, 340, 290);
 
         jPnlBackground.add(jPanel1);
         jPanel1.setBounds(10, 40, 620, 320);
@@ -355,9 +323,9 @@ public class AddStudent_GUI extends javax.swing.JFrame {
     private javax.swing.JButton jBtnClose;
     private javax.swing.JButton jBtnMinimize;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPnlBackground;
     private javax.swing.JPanel jPnlBackgroundTopMenu;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField txtAcademicYear;
     private javax.swing.JTextField txtBirthDate;
     private javax.swing.JTextField txtGrade1;
