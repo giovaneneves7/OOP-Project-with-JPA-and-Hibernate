@@ -259,20 +259,40 @@ public class Students_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        
-        int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Input the student ID", "Delete", JOptionPane.INFORMATION_MESSAGE));
-        
+
+        int id;
+
+        if(tblStudents.getSelectedRow() == -1)
+            id = Integer.parseInt(JOptionPane.showInputDialog(null, "Input the student ID", "Delete", JOptionPane.INFORMATION_MESSAGE));
+        else
+            id = tableModel.getStudentList().get(tblStudents.getSelectedRow()).getId();
+
         StudentDAO studentDao = new StudentDAO();
-        
-        
+
+
         if(studentDao.remove(id)){
-            
-            tableModel.removeRow(id);
-            
-            
-        } else{
+            if(tblStudents.getSelectedRow() != -1){
+
+                tableModel.removeRow(tblStudents.getSelectedRow());
+
+            } else{
+                int rowToRemove = -1;
+
+                for(int i = 0; i < tblStudents.getRowCount(); i++){
+                    if(tableModel.getStudentList().get(i).getId() == id){
+                        rowToRemove = i;
+                    }
+                }
+
+                if(rowToRemove != -1){
+
+                    tableModel.removeRow(rowToRemove);
+
+                }
+            }
+        } else
             JOptionPane.showMessageDialog(null, "Invalid student ID!", "Delete", JOptionPane.ERROR_MESSAGE);
-        }
+            
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
