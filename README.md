@@ -16,9 +16,14 @@
 <hr>
 
 <h2><p align="center"> 📟 GUI: </p></h2>
- <blockquote>Version 1.0: Simple interfaces, with buttons for managing the data of students registered in the database.</blockquote>
- <p align="center"> <img src="https://user-images.githubusercontent.com/123518676/229355022-6f86d3d7-919e-4471-aa54-0e228ad412b0.png" width="400" height="200"/><img src="https://user-images.githubusercontent.com/123518676/229326488-2cea5a81-1c4d-44b5-9619-24027e6492c7.png" width="400" height="200"/> </p>
+
+ #### New Version:
+ 
+ <blockquote>Version 1.1: Simple interfaces, with buttons for managing the data of students registered in the database.</blockquote>
+ <p align="center"> <img src="https://user-images.githubusercontent.com/123518676/229368180-0fc6c028-31fe-44e6-845b-407d8fb9d963.png" width="400" height="200"/><img src="https://user-images.githubusercontent.com/123518676/229368287-a6dcf653-cb02-4caa-9205-e3946ba170e3.png" width="400" height="200"/><img src="https://user-images.githubusercontent.com/123518676/229368323-30f4a85e-814a-44d0-89e4-3e132c0ea7af.png" width="400" height="200"/> </p>
+ 
 <hr>
+
 
 <h2><p align="center"> 🧉 Sources: </p></h2>
 
