@@ -3,6 +3,7 @@ package com.github.nekoyasha7.oopregistrationproject.view;
 import com.github.nekoyasha7.oopregistrationproject.dao.StudentDAO;
 import com.github.nekoyasha7.oopregistrationproject.model.StudentsTableModel;
 import com.github.nekoyasha7.oopregistrationproject.model.Student;
+import static com.github.nekoyasha7.oopregistrationproject.view.EditStudent_GUI.student;
 
 import javax.swing.JOptionPane;
 
@@ -216,6 +217,11 @@ public class Students_GUI extends javax.swing.JFrame {
         }.getIcon());
         btnEdit.setBorderPainted(false);
         btnEdit.setFocusPainted(false);
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
         jPnlBackground.add(btnEdit);
         btnEdit.setBounds(10, 140, 60, 40);
 
@@ -278,6 +284,29 @@ public class Students_GUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        
+        Student student;
+
+        if(tblStudents.getSelectedRow() == -1){
+            int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Input the student ID", "Delete", JOptionPane.INFORMATION_MESSAGE));
+            StudentDAO studentDao = new StudentDAO();
+            student = studentDao.findById(id);
+        }
+        else
+            student = tableModel.getStudentList().get(tblStudents.getSelectedRow());
+        
+        if(student != null){
+            
+            dispose();
+            new EditStudent_GUI(student).setVisible(true);
+            
+        } else
+            JOptionPane.showMessageDialog(null, "Invalid student ID!", "Delete", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_btnEditActionPerformed
+
+    
+    
     /**
      * Removes the selected row and delete the student in the row.
      * @param id of the student to be deleted.
