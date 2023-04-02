@@ -13,4 +13,13 @@
 <h2> <p align="center">  About: </p> </h2>
 
 *This is a project that simulates a student management system, which saves student data in a database with Hibernate ORM.*
- 
+<hr>
+
+<h2><p align="center"> 📟 GUI: </p></h2>
+ <blockquote>Version 1.0: Simple interfaces, with buttons for managing the data of students registered in the database.</blockquote>
+ <img src="https://user-images.githubusercontent.com/123518676/229326393-86ab3201-c984-4d35-a1e6-2715966f4973.png" width="400" height="200"/><img src="https://user-images.githubusercontent.com/123518676/229326488-2cea5a81-1c4d-44b5-9619-24027e6492c7.png" width="400" height="200"/>
+<hr>
+
+<h2><p align="center"> 🧉 Sources: </p></h2>
+
+**Link to the icons used in the buttons:** [MyWorkspace.html](https://meuworkspace.blogspot.com/2023/04/oop-project.html)
