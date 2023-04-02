@@ -11,7 +11,7 @@ public class OOPRegistrationProject {
 
     public static void main(String[] args) {
 
-        //ConnectionFactory.connect();
         new Students_GUI().setVisible(true);
+        
     }
 }
