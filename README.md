@@ -40,7 +40,7 @@
 
 <h2><p align="center"> 📼 SQL Sources: </p></h2>
 
-**SQL used to create the student table:**
+> Because of a "create" error in ``<property name="hibernate.hbm2ddl.auto" value="create" />``, on the Free SQL Database site, the table "students" had to be created manually with the following SQL:
 ```mysql
 
 USE school;
