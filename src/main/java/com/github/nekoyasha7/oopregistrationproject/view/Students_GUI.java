@@ -17,6 +17,16 @@ public class Students_GUI extends javax.swing.JFrame {
     public Students_GUI() {
 
         initComponents();
+        loadData();
+
+        this.tblStudents.setModel(tableModel);
+
+    }
+
+    /**
+     * Takes the data from the database and adds it to the table model.
+     */
+    private void loadData(){
 
         StudentDAO studentDAO = new StudentDAO();
 
@@ -25,9 +35,6 @@ public class Students_GUI extends javax.swing.JFrame {
             tableModel.getStudentList().add(student);
 
         }
-
-
-        this.tblStudents.setModel(tableModel);
 
     }
 
