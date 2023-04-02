@@ -25,23 +25,9 @@ public class AddStudent_GUI extends javax.swing.JFrame {
     public AddStudent_GUI() {
         
         initComponents();
-        createBirthDateMask();
         
     }
 
-    public void createBirthDateMask(){
-        MaskFormatter maskBirthDate;
-        
-        try{
-            maskBirthDate = new MaskFormatter("##/##/####");
-        } catch(Exception ex){
-            maskBirthDate = new MaskFormatter();
-        }
-        
-        javax.swing.JFormattedTextField formattedTextField = new javax.swing.JFormattedTextField(maskBirthDate);
-        
-        txtBirthDate.setText(formattedTextField.getValue().toString());
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
