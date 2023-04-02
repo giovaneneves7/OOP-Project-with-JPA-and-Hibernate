@@ -31,7 +31,7 @@ public class ConnectionFactory {
         
         try{
             
-            EntityManagerFactory factory = Persistence.createEntityManagerFactory("school");
+            EntityManagerFactory factory = Persistence.createEntityManagerFactory("sql10610591");
             setEntityManager(factory.createEntityManager());
             System.out.println("Connnection success!");
             
