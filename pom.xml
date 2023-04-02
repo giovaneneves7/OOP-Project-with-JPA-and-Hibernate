@@ -10,7 +10,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <exec.mainClass>com.github.nekoyasha7.oopregistrationproject.OOPRegistrationProject</exec.mainClass>
+        <exec.mainClass>com.github.nekoyasha7.oopregistrationproject.view.Students_GUI</exec.mainClass>
     </properties>
     
     <dependencies>
