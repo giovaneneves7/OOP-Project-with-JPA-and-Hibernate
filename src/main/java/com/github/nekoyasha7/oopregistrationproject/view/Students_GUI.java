@@ -27,7 +27,7 @@ public class Students_GUI extends javax.swing.JFrame {
         }
 
 
-        this.jTblStudents.setModel(tableModel);
+        this.tblStudents.setModel(tableModel);
 
     }
 
@@ -47,7 +47,7 @@ public class Students_GUI extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         lblOptions = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTblStudents = new javax.swing.JTable();
+        tblStudents = new javax.swing.JTable();
         btnRefresh = new javax.swing.JButton();
         jBtnAddNewEntry = new javax.swing.JButton();
         jBtnClose = new javax.swing.JButton();
@@ -101,10 +101,10 @@ public class Students_GUI extends javax.swing.JFrame {
         jPnlBackground.add(jPnlBackgroundOptionsMenu);
         jPnlBackgroundOptionsMenu.setBounds(10, 40, 620, 40);
 
-        jTblStudents.setBackground(new java.awt.Color(255, 139, 73));
-        jTblStudents.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jTblStudents.setForeground(new java.awt.Color(255, 255, 255));
-        jTblStudents.setModel(new javax.swing.table.DefaultTableModel(
+        tblStudents.setBackground(new java.awt.Color(255, 139, 73));
+        tblStudents.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        tblStudents.setForeground(new java.awt.Color(255, 255, 255));
+        tblStudents.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -115,7 +115,7 @@ public class Students_GUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTblStudents);
+        jScrollPane1.setViewportView(tblStudents);
 
         jPnlBackground.add(jScrollPane1);
         jScrollPane1.setBounds(100, 90, 530, 270);
@@ -185,6 +185,11 @@ public class Students_GUI extends javax.swing.JFrame {
         }.getIcon());
         btnDelete.setBorderPainted(false);
         btnDelete.setFocusPainted(false);
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
         jPnlBackground.add(btnDelete);
         btnDelete.setBounds(10, 190, 60, 40);
 
@@ -253,6 +258,23 @@ public class Students_GUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnRefreshActionPerformed
 
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        
+        int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Input the student ID", "Delete", JOptionPane.INFORMATION_MESSAGE));
+        
+        StudentDAO studentDao = new StudentDAO();
+        
+        
+        if(studentDao.remove(id)){
+            
+            tableModel.removeRow(id);
+            
+            
+        } else{
+            JOptionPane.showMessageDialog(null, "Invalid student ID!", "Delete", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -302,8 +324,8 @@ public class Students_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPnlBackgroundOptionsMenu;
     private javax.swing.JPanel jPnlBackgroundTopMenu;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTblStudents;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblOptions;
+    private javax.swing.JTable tblStudents;
     // End of variables declaration//GEN-END:variables
 }
