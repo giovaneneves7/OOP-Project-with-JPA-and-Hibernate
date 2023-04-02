@@ -267,17 +267,30 @@ public class Students_GUI extends javax.swing.JFrame {
         else
             id = tableModel.getStudentList().get(tblStudents.getSelectedRow()).getId();
 
+        removeStudent(id);
+
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    /**
+     * Removes the selected row and delete the student in the row.
+     * @param id of the student to be deleted.
+     */
+    public void removeStudent(int id){
+
         StudentDAO studentDao = new StudentDAO();
 
-
         if(studentDao.remove(id)){
+
+            ///--+ Checks if the row is selected +--//
             if(tblStudents.getSelectedRow() != -1){
 
                 tableModel.removeRow(tblStudents.getSelectedRow());
 
             } else{
+
                 int rowToRemove = -1;
 
+                //--+ Searches for the line number to be removed +--//
                 for(int i = 0; i < tblStudents.getRowCount(); i++){
                     if(tableModel.getStudentList().get(i).getId() == id){
                         rowToRemove = i;
@@ -292,9 +305,8 @@ public class Students_GUI extends javax.swing.JFrame {
             }
         } else
             JOptionPane.showMessageDialog(null, "Invalid student ID!", "Delete", JOptionPane.ERROR_MESSAGE);
-            
-    }//GEN-LAST:event_btnDeleteActionPerformed
 
+    }
     /**
      * @param args the command line arguments
      */
