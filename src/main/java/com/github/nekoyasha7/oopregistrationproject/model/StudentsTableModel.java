@@ -92,4 +92,15 @@ public class StudentsTableModel extends AbstractTableModel{
         
     }
     
+    /**
+     * 
+     * @param row to be removed from the JTable.
+     */
+    public void removeRow(int row){
+        
+        this.getStudentList().remove(row);
+        this.fireTableRowsDeleted(row, row);
+        
+    }
+    
 }
