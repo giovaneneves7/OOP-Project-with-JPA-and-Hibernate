@@ -35,3 +35,27 @@
 <h2><p align="center"> 🧉 Sources: </p></h2>
 
 **Link to the icons used in the buttons:** [MyWorkspace.html](https://meuworkspace.blogspot.com/2023/04/oop-project.html)
+
+**MySQL remote database:** [Free SQL DataBase](https://www.freesqldatabase.com/account/)
+
+<h2><p align="center"> 📼 SQL Sources: </p></h2>
+
+**SQL used to create the student table:**
+```mysql
+
+USE school;
+
+CREATE TABLE students (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  registration_number VARCHAR(20) NOT NULL DEFAULT '',
+  birth_date DATE NOT NULL DEFAULT '1111-11-11',
+  academic_year INT NOT NULL DEFAULT 0,
+  grade1 FLOAT NOT NULL DEFAULT 0,
+  grade2 FLOAT NOT NULL DEFAULT 0,
+  grade3 FLOAT NOT NULL DEFAULT 0,
+  average_grade FLOAT NOT NULL DEFAULT 0,
+  PRIMARY KEY (id)
+);
+
+```
