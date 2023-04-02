@@ -5,6 +5,8 @@ import com.github.nekoyasha7.oopregistrationproject.model.StudentsTableModel;
 import com.github.nekoyasha7.oopregistrationproject.model.Student;
 import static com.github.nekoyasha7.oopregistrationproject.view.EditStudent_GUI.student;
 
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -95,6 +97,11 @@ public class Students_GUI extends javax.swing.JFrame {
         txtSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSearchActionPerformed(evt);
+            }
+        });
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSearchKeyTyped(evt);
             }
         });
         jPnlBackgroundOptionsMenu.add(txtSearch);
@@ -305,7 +312,42 @@ public class Students_GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Invalid student ID!", "Delete", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_btnEditActionPerformed
 
-    
+    private void txtSearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyTyped
+        
+        searchByTypedData();
+        
+    }//GEN-LAST:event_txtSearchKeyTyped
+
+    /**
+     * Searches students based on text typed into the search bar.
+     */
+    public void searchByTypedData(){
+        
+        StudentsTableModel newTableModel = new StudentsTableModel();
+        StudentDAO studentDao = new StudentDAO();
+        
+        List<Student> students = studentDao.listStudents();
+                
+        //--+ Loads all data if the search field is empty +--//
+        if(txtSearch.getText().isEmpty()){
+            loadData();
+            this.tblStudents.setModel(tableModel);
+            return;
+        }
+        
+        for(Student student : students){
+            
+            if(student.getName().contains(txtSearch.getText())){
+
+                newTableModel.getStudentList().add(student);
+                
+            }
+        }
+        
+        this.tblStudents.setModel(newTableModel);
+        
+        
+    }
     
     /**
      * Removes the selected row and delete the student in the row.
