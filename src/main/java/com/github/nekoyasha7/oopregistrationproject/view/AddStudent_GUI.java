@@ -4,13 +4,10 @@ package com.github.nekoyasha7.oopregistrationproject.view;
 import com.github.nekoyasha7.oopregistrationproject.dao.StudentDAO;
 import com.github.nekoyasha7.oopregistrationproject.model.Student;
 import com.github.nekoyasha7.oopregistrationproject.controller.DataFormatValidator;
+
 import java.time.LocalDate;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.JOptionPane;
-import javax.swing.text.MaskFormatter;
 //--+ END Imports +--//
 
 /**
