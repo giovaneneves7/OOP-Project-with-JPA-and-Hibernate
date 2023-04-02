@@ -2,7 +2,10 @@ package com.github.nekoyasha7.oopregistrationproject.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JButton;
+
+import java.time.LocalDate;
+import java.time.Period;
+
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -14,7 +17,7 @@ public class StudentsTableModel extends AbstractTableModel{
     //----------------------------------------------{ ATTRIBUTES }----------------------------------------------//
     
     private List<Student> studentList = new ArrayList<>();
-    private String[] collumns = {"ID", "Name", "Registration", "Average grades", "Academic Year", "Birth Date"};
+    private String[] collumns = {"ID", "Name", "Registration", "Average grades", "Academic Year", "Age"};
 
     //----------------------------------------------{ GETTERS AND SETTERS}----------------------------------------------//
     public List<Student> getStudentList() {
@@ -67,7 +70,9 @@ public class StudentsTableModel extends AbstractTableModel{
             case 4:
                 return this.getStudentList().get(rowIndex).getAcademicYear();
             case 5:
-                return this.getStudentList().get(rowIndex).getBirthDate();
+                LocalDate birthDate = this.getStudentList().get(rowIndex).getBirthDate();
+                int age = Period.between(birthDate, LocalDate.now()).getYears();
+                return age + " years old";
 
         }
         
