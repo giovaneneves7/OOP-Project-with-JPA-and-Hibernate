@@ -2,6 +2,7 @@ package com.github.nekoyasha7.oopregistrationproject.controller;
 
 //--+ Imports +--//
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 import javax.swing.JOptionPane;
@@ -72,8 +73,9 @@ public class DataFormatValidator {
         LocalDate birthDate;
         
         try{
-            
-            birthDate = LocalDate.parse(string);
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+            birthDate = LocalDate.parse(string, formatter);
             return birthDate;
             
         } catch(DateTimeParseException ex){
