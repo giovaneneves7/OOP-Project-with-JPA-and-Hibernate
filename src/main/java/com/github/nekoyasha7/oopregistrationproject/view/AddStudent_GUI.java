@@ -262,7 +262,8 @@ public class AddStudent_GUI extends javax.swing.JFrame {
                     }
 
                     //--+ Sets the student's grade point average +--//
-                    float average = (sumUpGrades(convertedGrades) != 0) ? (convertedGrades.length / sumUpGrades(convertedGrades)) : 0;
+                    float  sum = sumUpGrades(convertedGrades);
+                    float average = (sum != 0) ? (sum / sumUpGrades(convertedGrades)) : 0;
 
                     Student newStudent = new Student();
 
