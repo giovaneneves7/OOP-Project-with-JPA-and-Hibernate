@@ -41,9 +41,12 @@ public class Students_GUI extends javax.swing.JFrame {
 
         Collections.sort(students, (student1, student2) -> student1.getName().compareTo(student2.getName()));
 
-        for(Student student : students){
-            tableModel.addRow(student);
-        }
+        if(!tableModel.getStudentList().isEmpty())
+            tableModel.getStudentList().clear();
+
+        tableModel.getStudentList().addAll(students);
+
+        tableModel.fireTableDataChanged();
 
     }
 
