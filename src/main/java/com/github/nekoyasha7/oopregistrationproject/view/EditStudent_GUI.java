@@ -54,8 +54,10 @@ public class EditStudent_GUI extends javax.swing.JFrame {
         txtGrade2 = new javax.swing.JTextField();
         txtGrade3 = new javax.swing.JTextField();
         lblStudentId = new javax.swing.JLabel();
+        lblUserIcon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPnlBackgroundTopMenu.setBackground(new java.awt.Color(255, 255, 255));
@@ -65,6 +67,8 @@ public class EditStudent_GUI extends javax.swing.JFrame {
         jBtnMinimize.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBtnMinimize.setForeground(new java.awt.Color(255, 255, 255));
         jBtnMinimize.setText("-");
+        jBtnMinimize.setBorderPainted(false);
+        jBtnMinimize.setFocusPainted(false);
         jBtnMinimize.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnMinimizeActionPerformed(evt);
@@ -76,6 +80,8 @@ public class EditStudent_GUI extends javax.swing.JFrame {
         jBtnClose.setBackground(new java.awt.Color(255, 139, 73));
         jBtnClose.setForeground(new java.awt.Color(255, 255, 255));
         jBtnClose.setText("X");
+        jBtnClose.setBorderPainted(false);
+        jBtnClose.setFocusPainted(false);
         jBtnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnCloseActionPerformed(evt);
@@ -105,7 +111,7 @@ public class EditStudent_GUI extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtName);
-        txtName.setBounds(60, 30, 230, 30);
+        txtName.setBounds(40, 30, 230, 30);
 
         txtRegistrationNumber.setText("Registration Number");
         txtRegistrationNumber.addActionListener(new java.awt.event.ActionListener() {
@@ -114,11 +120,11 @@ public class EditStudent_GUI extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtRegistrationNumber);
-        txtRegistrationNumber.setBounds(60, 70, 230, 30);
+        txtRegistrationNumber.setBounds(40, 70, 230, 30);
 
         txtAcademicYear.setText("Academic Year");
         jPanel2.add(txtAcademicYear);
-        txtAcademicYear.setBounds(60, 110, 230, 30);
+        txtAcademicYear.setBounds(40, 110, 230, 30);
 
         txtBirthDate.setText("Birth Date");
         txtBirthDate.addActionListener(new java.awt.event.ActionListener() {
@@ -127,22 +133,23 @@ public class EditStudent_GUI extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtBirthDate);
-        txtBirthDate.setBounds(60, 150, 230, 40);
+        txtBirthDate.setBounds(40, 150, 230, 40);
 
         btnUpdate.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 139, 73));
         btnUpdate.setText("UPDATE");
+        btnUpdate.setFocusPainted(false);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
         jPanel2.add(btnUpdate);
-        btnUpdate.setBounds(100, 230, 140, 50);
+        btnUpdate.setBounds(80, 240, 140, 40);
 
         txtGrade1.setText("Grade 01");
         jPanel2.add(txtGrade1);
-        txtGrade1.setBounds(60, 200, 64, 20);
+        txtGrade1.setBounds(40, 200, 64, 30);
 
         txtGrade2.setText("Grade 02");
         txtGrade2.addActionListener(new java.awt.event.ActionListener() {
@@ -151,24 +158,38 @@ public class EditStudent_GUI extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtGrade2);
-        txtGrade2.setBounds(140, 200, 70, 20);
+        txtGrade2.setBounds(120, 200, 70, 30);
 
         txtGrade3.setText("Grade 03");
         jPanel2.add(txtGrade3);
-        txtGrade3.setBounds(220, 200, 70, 20);
+        txtGrade3.setBounds(200, 200, 70, 30);
 
         lblStudentId.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblStudentId.setText("Student ID: ");
         jPanel2.add(lblStudentId);
-        lblStudentId.setBounds(120, 10, 170, 16);
+        lblStudentId.setBounds(120, 10, 170, 20);
+
+        lblUserIcon.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjx4Wb94axWcSUXXjE-AOOsf2f-ZDjVM-O6m1Fv-ZTdBuw7N4q-tCLOlsVXiYtin0dZK4JTA_rNSjS61gcDenNeDNHgwZhOD3BDojSxMbyklCpFaJ2AePoNL-6e9EuJUE9QY2LPdq68pxP5bys9BBn_PISEe8mdlKdjsrkAiC1g3kfvsjIJh42A6PuV3g/s16/user.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        jPanel2.add(lblUserIcon);
+        lblUserIcon.setBounds(100, 0, 20, 40);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(140, 20, 340, 290);
+        jPanel2.setBounds(140, 20, 310, 290);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(10, 40, 620, 320);
 
-        setSize(new java.awt.Dimension(655, 380));
+        setSize(new java.awt.Dimension(639, 372));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -180,10 +201,10 @@ public class EditStudent_GUI extends javax.swing.JFrame {
 
     private void jBtnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCloseActionPerformed
 
-        //--+ Closes the program +--//
+        //--+ Closes the window +--//
         if(JOptionPane.showConfirmDialog(null, "Are you sure you want to close this window?", "Close Warning",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
-        dispose();
         new Students_GUI().setVisible(true);
+        dispose();
     }//GEN-LAST:event_jBtnCloseActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
@@ -245,6 +266,7 @@ public class EditStudent_GUI extends javax.swing.JFrame {
 
                     //--+ Registers the new student in the database +--//
                     updateStudent.update(student);
+                    JOptionPane.showMessageDialog(null, "Student successfully updated", "Update", JOptionPane.INFORMATION_MESSAGE);
                 }
 
             }
@@ -316,6 +338,7 @@ public class EditStudent_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPnlBackgroundTopMenu;
     private javax.swing.JLabel lblStudentId;
+    private javax.swing.JLabel lblUserIcon;
     private javax.swing.JTextField txtAcademicYear;
     private javax.swing.JTextField txtBirthDate;
     private javax.swing.JTextField txtGrade1;
