@@ -61,6 +61,7 @@ public class AddStudent_GUI extends javax.swing.JFrame {
         jBtnMinimize.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBtnMinimize.setForeground(new java.awt.Color(255, 255, 255));
         jBtnMinimize.setText("-");
+        jBtnMinimize.setFocusPainted(false);
         jBtnMinimize.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnMinimizeActionPerformed(evt);
@@ -72,6 +73,7 @@ public class AddStudent_GUI extends javax.swing.JFrame {
         jBtnClose.setBackground(new java.awt.Color(255, 139, 73));
         jBtnClose.setForeground(new java.awt.Color(255, 255, 255));
         jBtnClose.setText("X");
+        jBtnClose.setFocusPainted(false);
         jBtnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnCloseActionPerformed(evt);
@@ -101,7 +103,7 @@ public class AddStudent_GUI extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtName);
-        txtName.setBounds(60, 20, 230, 30);
+        txtName.setBounds(50, 20, 230, 30);
 
         txtRegistrationNumber.setText("Registration Number");
         txtRegistrationNumber.addActionListener(new java.awt.event.ActionListener() {
@@ -110,11 +112,11 @@ public class AddStudent_GUI extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtRegistrationNumber);
-        txtRegistrationNumber.setBounds(60, 60, 230, 40);
+        txtRegistrationNumber.setBounds(50, 60, 230, 40);
 
         txtAcademicYear.setText("Academic Year");
         jPanel2.add(txtAcademicYear);
-        txtAcademicYear.setBounds(60, 110, 230, 30);
+        txtAcademicYear.setBounds(50, 110, 230, 30);
 
         txtBirthDate.setText("Birth Date");
         txtBirthDate.addActionListener(new java.awt.event.ActionListener() {
@@ -123,22 +125,23 @@ public class AddStudent_GUI extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtBirthDate);
-        txtBirthDate.setBounds(60, 150, 230, 40);
+        txtBirthDate.setBounds(50, 150, 230, 40);
 
         btnRegister.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 139, 73));
         btnRegister.setText("Register");
+        btnRegister.setFocusPainted(false);
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisterActionPerformed(evt);
             }
         });
         jPanel2.add(btnRegister);
-        btnRegister.setBounds(100, 230, 140, 50);
+        btnRegister.setBounds(80, 240, 140, 40);
 
         txtGrade1.setText("Grade 01");
         jPanel2.add(txtGrade1);
-        txtGrade1.setBounds(60, 200, 64, 20);
+        txtGrade1.setBounds(50, 200, 64, 30);
 
         txtGrade2.setText("Grade 02");
         txtGrade2.addActionListener(new java.awt.event.ActionListener() {
@@ -147,14 +150,14 @@ public class AddStudent_GUI extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtGrade2);
-        txtGrade2.setBounds(140, 200, 70, 20);
+        txtGrade2.setBounds(130, 200, 70, 30);
 
         txtGrade3.setText("Grade 03");
         jPanel2.add(txtGrade3);
-        txtGrade3.setBounds(220, 200, 70, 20);
+        txtGrade3.setBounds(210, 200, 70, 30);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(140, 20, 340, 290);
+        jPanel2.setBounds(150, 20, 310, 290);
 
         jPnlBackground.add(jPanel1);
         jPanel1.setBounds(10, 40, 620, 320);
@@ -243,6 +246,8 @@ public class AddStudent_GUI extends javax.swing.JFrame {
 
                     //--+ Registers the new student in the database +--//
                     newRegistration.add(newStudent);
+                    JOptionPane.showMessageDialog(null, "Student successfully registered", "Registration", JOptionPane.INFORMATION_MESSAGE);
+                    
                 }
                 
             }
