@@ -54,9 +54,17 @@
 
  #### New Version:
  
- <blockquote>Version 1.1: Simple interfaces, with buttons for managing the data of students registered in the database.</blockquote>
- <p align="center"> <img src="https://user-images.githubusercontent.com/123518676/229368180-0fc6c028-31fe-44e6-845b-407d8fb9d963.png" width="400" height="200"/><img src="https://user-images.githubusercontent.com/123518676/229368287-a6dcf653-cb02-4caa-9205-e3946ba170e3.png" width="400" height="200"/><img src="https://user-images.githubusercontent.com/123518676/229368323-30f4a85e-814a-44d0-89e4-3e132c0ea7af.png" width="400" height="200"/> </p>
+ <blockquote>Version 1.2: Simple interfaces, with buttons for managing the data of students registered in the database.</blockquote>
  
+ > **1.0: Home Screen.** Screen with a list of all the students registered in the database. Students are listed alphabetically, not in order of IDs. Check the utility of each button above, in the [Utilities topic](https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/edit/master/README.md#--features-).
+ <p align="center"> <img src="https://user-images.githubusercontent.com/123518676/229532400-84b5fdd4-a38d-4b32-9767-f77c477e57c4.png" width="600" height="300"/></p>
+ 
+ > **2.0: Registration Screen.**
+ <p align="center"> <img src="https://user-images.githubusercontent.com/123518676/229533902-cd296c89-88a7-4f2e-8290-fd9455ac60e5.png" width="600" height="300"/>
+ 
+  > **3.0: Update Screen.**
+ <p align="center"><img src="https://user-images.githubusercontent.com/123518676/229534177-beb1ddb9-e07e-486a-bd3d-32e35ed7f544.png" width="600" height="300"/> </p>
+
 <hr>
 
 
