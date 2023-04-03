@@ -4,6 +4,8 @@ import com.github.nekoyasha7.oopregistrationproject.dao.StudentDAO;
 import com.github.nekoyasha7.oopregistrationproject.model.StudentsTableModel;
 import com.github.nekoyasha7.oopregistrationproject.model.Student;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import java.awt.Color;
@@ -35,11 +37,12 @@ public class Students_GUI extends javax.swing.JFrame {
     private void loadData(){
 
         StudentDAO studentDAO = new StudentDAO();
+        List<Student> students = studentDAO.listStudents();
 
-        for(Student student : studentDAO.listStudents()){
+        Collections.sort(students, (student1, student2) -> student1.getName().compareTo(student2.getName()));
 
-            tableModel.getStudentList().add(student);
-
+        for(Student student : students){
+            tableModel.addRow(student);
         }
 
     }
