@@ -6,6 +6,9 @@ import com.github.nekoyasha7.oopregistrationproject.model.Student;
 
 import java.util.List;
 
+import java.awt.Color;
+
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +25,7 @@ public class Students_GUI extends javax.swing.JFrame {
         loadData();
 
         this.tblStudents.setModel(tableModel);
+        tblStudents.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
     }
 
