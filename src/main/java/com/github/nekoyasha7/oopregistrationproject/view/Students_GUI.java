@@ -3,7 +3,6 @@ package com.github.nekoyasha7.oopregistrationproject.view;
 import com.github.nekoyasha7.oopregistrationproject.dao.StudentDAO;
 import com.github.nekoyasha7.oopregistrationproject.model.StudentsTableModel;
 import com.github.nekoyasha7.oopregistrationproject.model.Student;
-import static com.github.nekoyasha7.oopregistrationproject.view.EditStudent_GUI.student;
 
 import java.util.List;
 
@@ -268,7 +267,7 @@ public class Students_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnAddNewEntryActionPerformed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtSearchActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
@@ -296,7 +295,7 @@ public class Students_GUI extends javax.swing.JFrame {
         Student student;
 
         if(tblStudents.getSelectedRow() == -1){
-            int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Input the student ID", "Delete", JOptionPane.INFORMATION_MESSAGE));
+            int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Input the student ID", "Edit", JOptionPane.INFORMATION_MESSAGE));
             StudentDAO studentDao = new StudentDAO();
             student = studentDao.findById(id);
         }
@@ -309,19 +308,19 @@ public class Students_GUI extends javax.swing.JFrame {
             new EditStudent_GUI(student).setVisible(true);
             
         } else
-            JOptionPane.showMessageDialog(null, "Invalid student ID!", "Delete", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Invalid student ID!", "Edit", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void txtSearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyTyped
         
-        searchByTypedData();
+        searchByTypedText();
         
     }//GEN-LAST:event_txtSearchKeyTyped
 
     /**
      * Searches students based on text typed into the search bar.
      */
-    public void searchByTypedData(){
+    public void searchByTypedText(){
         
         StudentsTableModel newTableModel = new StudentsTableModel();
         StudentDAO studentDao = new StudentDAO();
