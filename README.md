@@ -22,6 +22,34 @@
 |MySQL      | MySQL is an open-source Relational Database Management System (RDBMS) that is widely used for storing and managing structured data. It uses the Structured Query Language (SQL) to manage and manipulate data stored in its databases. MySQL is highly scalable and can handle large amounts of data efficiently. It is commonly used in web applications, such as student management systems, to store and retrieve data. MySQL provides a variety of features, including support for transactions, indexes, and stored procedures, making it a popular choice for developers.|
 <hr>
 
+<h2><p align="center"> 🛠 Features: </p></h2>
+
+> **1.0 Add:** opens a new screen to register a student in the database. The new screen will be overlaid on the current screen, this means that the "refresh" button will have to be pressed every time a new student is registered. <br />
+![image](https://user-images.githubusercontent.com/123518676/229386601-ddfc6af4-3b7c-4bf9-8f68-21a02dfd3812.png)
+<hr>
+
+> **2.0 Edit:** Opens a new screen to edit a student. To remove the selection from the row, refresh it by clicking the "refresh" button. If you want to select another student, click on the new student, only one student can be selected at a time.<br />
+![image](https://user-images.githubusercontent.com/123518676/229386847-6ebab7c8-a3eb-446d-af88-11a6f53c71a2.png)
+<hr>
+
+> **2.1 Edit:** If a row in the table is not selected, a screen will open asking for the ID of the student you want to edit. <br />
+![image](https://user-images.githubusercontent.com/123518676/229386783-ebc0c3d7-ad0b-4e36-b0fe-99c9f9d0ca0f.png)
+<hr>
+
+> **3.0 Delete:** Deletes the selected line. <br />
+![image](https://user-images.githubusercontent.com/123518676/229387047-a6267b4c-408e-4f5a-a2e6-a6662191f41b.png) 
+<hr>
+
+> **3.1 Edit:** If a row in the table is not selected, a screen will open asking for the ID of the student you want to delete. <br />
+![image](https://user-images.githubusercontent.com/123518676/229386783-ebc0c3d7-ad0b-4e36-b0fe-99c9f9d0ca0f.png)
+<hr>
+
+> **4.0 Refresh:** Refresh the page. Some data may not load correctly into the table after an operation on other screens. Pressing the button will retrieve the updated data from the database. <br />
+![image](https://user-images.githubusercontent.com/123518676/229387299-a0f6257a-8d34-4be2-a052-a1e354525454.png)
+
+> **5.0 Search Bar:** The search bar collects the text you type and searches the database for students with names containing the characters you type. When the search bar is empty, it loads all data from the database. If you type in a student name that does not exist in the database, the table is empty. <br />
+![image](https://user-images.githubusercontent.com/123518676/229387456-8be3e06f-8629-4338-b689-9838380e503f.png)
+
 <h2><p align="center"> 📟 GUI: </p></h2>
 
  #### New Version:
