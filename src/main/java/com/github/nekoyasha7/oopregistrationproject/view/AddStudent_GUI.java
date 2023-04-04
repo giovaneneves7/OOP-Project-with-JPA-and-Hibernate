@@ -200,6 +200,9 @@ public class AddStudent_GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRegistrationNumberActionPerformed
 
+    /**
+     * Collects the contents of the text fields and attempts to register a new student into the database.
+     */
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         
         

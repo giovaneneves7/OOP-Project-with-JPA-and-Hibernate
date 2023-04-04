@@ -223,6 +223,9 @@ public class EditStudent_GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBirthDateActionPerformed
 
+    /**
+     * Collects the contents of text fields and attempts to update the data of a student registered in the database.
+     */
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
 
         String[] textFieldContents = {txtName.getText(), txtRegistrationNumber.getText(), txtGrade1.getText(), txtGrade2.getText(), txtGrade3.getText()};
