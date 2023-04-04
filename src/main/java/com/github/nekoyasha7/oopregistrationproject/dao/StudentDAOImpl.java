@@ -1,13 +1,15 @@
 package com.github.nekoyasha7.oopregistrationproject.dao;
 
+//--+ Imports +--//
 import com.github.nekoyasha7.oopregistrationproject.connection.ConnectionFactory;
 import com.github.nekoyasha7.oopregistrationproject.model.Student;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+//--+ END Imports +--//
 
 public class StudentDAOImpl implements StudentDAO{
-    private ConnectionFactory connectionFactory;
+    private final ConnectionFactory connectionFactory;
 
     public StudentDAOImpl(){
 

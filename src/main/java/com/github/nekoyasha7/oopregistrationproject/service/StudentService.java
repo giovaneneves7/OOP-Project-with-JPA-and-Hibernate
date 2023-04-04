@@ -1,9 +1,12 @@
 package com.github.nekoyasha7.oopregistrationproject.service;
 
+//--+ Imports +--//
+
 import com.github.nekoyasha7.oopregistrationproject.dao.StudentDAOImpl;
 import com.github.nekoyasha7.oopregistrationproject.model.Student;
 
 import java.util.List;
+//--+ END Imports +--//
 
 public class StudentService {
 
