@@ -1,5 +1,6 @@
 package com.github.nekoyasha7.oopregistrationproject.model;
 
+//--+ Imports +--//
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import java.time.LocalDate;
 import java.time.Period;
 
 import javax.swing.table.AbstractTableModel;
-
+//--+ END imports +--//
 /**
  *
  * @author GiovaneNeves

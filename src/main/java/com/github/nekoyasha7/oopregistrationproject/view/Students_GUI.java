@@ -1,5 +1,6 @@
 package com.github.nekoyasha7.oopregistrationproject.view;
 
+//--+ Imports +--//
 import com.github.nekoyasha7.oopregistrationproject.service.StudentService;
 import com.github.nekoyasha7.oopregistrationproject.model.StudentsTableModel;
 import com.github.nekoyasha7.oopregistrationproject.model.Student;
@@ -11,7 +12,7 @@ import java.awt.Color;
 
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
-
+//--+ END Imports +--//
 /**
  *
  * @author GiovaneNeves
