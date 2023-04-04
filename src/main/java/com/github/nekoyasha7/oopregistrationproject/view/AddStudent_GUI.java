@@ -1,7 +1,7 @@
 package com.github.nekoyasha7.oopregistrationproject.view;
 
 //--+ Imports +--//
-import com.github.nekoyasha7.oopregistrationproject.dao.StudentDAO;
+import com.github.nekoyasha7.oopregistrationproject.service.StudentService;
 import com.github.nekoyasha7.oopregistrationproject.model.Student;
 import com.github.nekoyasha7.oopregistrationproject.controller.DataFormatValidator;
 
@@ -242,10 +242,10 @@ public class AddStudent_GUI extends javax.swing.JFrame {
                     newStudent.setGrades(convertedGrades);
                     newStudent.setAverageGrades(average);
 
-                    StudentDAO newRegistration = new StudentDAO();
+                    StudentService studentService = new StudentService();
 
                     //--+ Registers the new student in the database +--//
-                    newRegistration.add(newStudent);
+                    studentService.addStudent(newStudent);
                     JOptionPane.showMessageDialog(null, "Student successfully registered", "Registration", JOptionPane.INFORMATION_MESSAGE);
                     
                 }

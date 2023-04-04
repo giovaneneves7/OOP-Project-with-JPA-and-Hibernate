@@ -2,9 +2,9 @@ package com.github.nekoyasha7.oopregistrationproject.view;
 
 //--+ Imports +--//
 
+import com.github.nekoyasha7.oopregistrationproject.service.StudentService;
 import com.github.nekoyasha7.oopregistrationproject.controller.DataFormatValidator;
 import com.github.nekoyasha7.oopregistrationproject.model.Student;
-import com.github.nekoyasha7.oopregistrationproject.dao.StudentDAO;
 
 import java.time.LocalDate;
 
@@ -21,12 +21,12 @@ public class EditStudent_GUI extends javax.swing.JFrame {
     
     /**
      * Creates new form EditStudent_GUI.
-     * @param studentToBeEditted and updated in the databse.
+     * @param studentToBeEdited and updated in the databse.
      */
-    public EditStudent_GUI(Student studentToBeEdittted) {
+    public EditStudent_GUI(Student studentToBeEdited) {
         initComponents();
         
-        student = studentToBeEdittted;
+        student = studentToBeEdited;
         this.lblStudentId.setText("Student ID: " + student.getId());
         
     }
@@ -262,10 +262,10 @@ public class EditStudent_GUI extends javax.swing.JFrame {
                     student.setGrades(convertedGrades);
                     student.setAverageGrades(average);
 
-                    StudentDAO updateStudent = new StudentDAO();
+                    StudentService studentService = new StudentService();
 
                     //--+ Registers the new student in the database +--//
-                    updateStudent.update(student);
+                    studentService.updateStudent(student);
                     JOptionPane.showMessageDialog(null, "Student successfully updated", "Update", JOptionPane.INFORMATION_MESSAGE);
                 }
 
@@ -284,9 +284,8 @@ public class EditStudent_GUI extends javax.swing.JFrame {
         
         float sum = 0;
         
-        for(float grade : grades){
+        for(float grade : grades)
             sum += grade;
-        }
         
         return sum;
     }
