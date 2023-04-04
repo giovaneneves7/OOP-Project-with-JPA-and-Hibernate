@@ -9,7 +9,7 @@
 
 <h2><p align="center"> ⚙ Contents: </p></h2>
 
-<p align="center"> <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/tree/master/src/main/java/com/github/nekoyasha7/oopregistrationproject/connection"> Connection </a> | <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/tree/master/src/main/java/com/github/nekoyasha7/oopregistrationproject/model"> Model </a> | <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/tree/master/src/main/java/com/github/nekoyasha7/oopregistrationproject/view"> View</a> | <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/tree/master/src/main/java/com/github/nekoyasha7/oopregistrationproject/controller"> Controller </a> | <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/tree/master/src/main/java/com/github/nekoyasha7/oopregistrationproject/dao"> DAO </a> </p>
+<p align="center"> <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/tree/master/src/main/java/com/github/nekoyasha7/oopregistrationproject/connection"> Connection </a> | <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/tree/master/src/main/java/com/github/nekoyasha7/oopregistrationproject/model"> Model </a> | <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/tree/master/src/main/java/com/github/nekoyasha7/oopregistrationproject/view"> View</a> | <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/tree/master/src/main/java/com/github/nekoyasha7/oopregistrationproject/controller"> Controller </a> | <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/tree/master/src/main/java/com/github/nekoyasha7/oopregistrationproject/dao"> DAO </a> | <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/tree/master/src/main/java/com/github/nekoyasha7/oopregistrationproject/service"> Service </a> </p>
 <h2> <p align="center">  About: </p> </h2>
 
 *This is a project that simulates a student management system, which saves student data in a database with Hibernate ORM. Check out below the resources used to create the project:*
@@ -59,10 +59,10 @@
  > **1.0: Home Screen.** Screen with a list of all the students registered in the database. Students are listed alphabetically, not in order of IDs. Check the utility of each button above, in the [Utilities topic](https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/edit/master/README.md#--features-).
  <p align="center"> <img src="https://user-images.githubusercontent.com/123518676/229532400-84b5fdd4-a38d-4b32-9767-f77c477e57c4.png" width="600" height="300"/></p>
  
- > **2.0: Registration Screen.**
+ > **2.0: Registration Screen.** The screen has layers of validations to check the integrity of the data. Data will only be registered if all text fields pass the validations of the Class ``DataFormatValidator``.
  <p align="center"> <img src="https://user-images.githubusercontent.com/123518676/229533902-cd296c89-88a7-4f2e-8290-fd9455ac60e5.png" width="600" height="300"/>
  
-  > **3.0: Update Screen.**
+  > **3.0: Update Screen.** As with the registration class, the text fields of the update class are validated by the ``DataFormatValidator``. 
  <p align="center"><img src="https://user-images.githubusercontent.com/123518676/229534177-beb1ddb9-e07e-486a-bd3d-32e35ed7f544.png" width="600" height="300"/> </p>
 
 <hr>
