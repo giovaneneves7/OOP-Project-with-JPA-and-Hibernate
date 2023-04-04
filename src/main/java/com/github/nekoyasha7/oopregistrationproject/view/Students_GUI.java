@@ -1,11 +1,10 @@
 package com.github.nekoyasha7.oopregistrationproject.view;
 
-import com.github.nekoyasha7.oopregistrationproject.dao.StudentDAO;
+import com.github.nekoyasha7.oopregistrationproject.service.StudentService;
 import com.github.nekoyasha7.oopregistrationproject.model.StudentsTableModel;
 import com.github.nekoyasha7.oopregistrationproject.model.Student;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import java.awt.Color;
@@ -36,8 +35,8 @@ public class Students_GUI extends javax.swing.JFrame {
      */
     private void loadData(){
 
-        StudentDAO studentDAO = new StudentDAO();
-        List<Student> students = studentDAO.listStudents();
+        StudentService studentService = new StudentService();
+        List<Student> students = studentService.listAllStudents();
 
         Collections.sort(students, (student1, student2) -> student1.getName().compareTo(student2.getName()));
 
@@ -305,9 +304,11 @@ public class Students_GUI extends javax.swing.JFrame {
         Student student;
 
         if(tblStudents.getSelectedRow() == -1){
+
             int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Input the student ID", "Edit", JOptionPane.INFORMATION_MESSAGE));
-            StudentDAO studentDao = new StudentDAO();
-            student = studentDao.findById(id);
+            StudentService studentService = new StudentService();
+            student = studentService.findStudentById(id);
+
         }
         else
             student = tableModel.getStudentList().get(tblStudents.getSelectedRow());
@@ -333,9 +334,9 @@ public class Students_GUI extends javax.swing.JFrame {
     public void searchByTypedText(){
         
         StudentsTableModel newTableModel = new StudentsTableModel();
-        StudentDAO studentDao = new StudentDAO();
+        StudentService studentService = new StudentService();
         
-        List<Student> students = studentDao.listStudents();
+        List<Student> students = studentService.listAllStudents();
                 
         //--+ Loads all data if the search field is empty +--//
         if(txtSearch.getText().isEmpty()){
@@ -364,9 +365,9 @@ public class Students_GUI extends javax.swing.JFrame {
      */
     public void removeStudent(int id){
 
-        StudentDAO studentDao = new StudentDAO();
+        StudentService studentService = new StudentService();
 
-        if(studentDao.remove(id)){
+        if(studentService.removeStudent(id)){
 
             ///--+ Checks if the row is selected +--//
             if(tblStudents.getSelectedRow() != -1){
