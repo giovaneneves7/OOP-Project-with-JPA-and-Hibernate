@@ -1,9 +1,9 @@
-package com.github.nekoyasha7.oopregistrationproject.service;
+package br.com.ifba.giovaneneves.oopregistrationproject.service;
 
 //--+ Imports +--//
 
-import com.github.nekoyasha7.oopregistrationproject.dao.StudentDAOImpl;
-import com.github.nekoyasha7.oopregistrationproject.model.Student;
+import br.com.ifba.giovaneneves.oopregistrationproject.dao.StudentDAOImpl;
+import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
 
 import java.util.List;
 //--+ END Imports +--//
@@ -48,7 +48,7 @@ public class StudentService {
      */
     public Student findStudentById(int id){
 
-        return studentDaoImpl.findById(id);
+        return studentDaoImpl.findById(id, Student.class);
 
     }
 
@@ -69,7 +69,7 @@ public class StudentService {
      */
     public boolean removeStudent(int id){
 
-        return this.getStudentDaoImpl().remove(id);
+        return this.getStudentDaoImpl().remove(id, Student.class);
 
     }
 
@@ -78,9 +78,9 @@ public class StudentService {
      * @param student to be updated.
      * @return true if the student exists in the database and the update was successful, false otherwise.
      */
-    public boolean updateStudent(Student student){
+    public boolean updateStudent(Student student, Class<Student> type){
 
-        return this.getStudentDaoImpl().update(student);
+        return this.getStudentDaoImpl().update(student, type);
 
     }
 

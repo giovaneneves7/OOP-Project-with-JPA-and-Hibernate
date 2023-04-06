@@ -1,10 +1,10 @@
-package com.github.nekoyasha7.oopregistrationproject.view;
+package br.com.ifba.giovaneneves.oopregistrationproject.view;
 
 //--+ Imports +--//
 
-import com.github.nekoyasha7.oopregistrationproject.service.StudentService;
-import com.github.nekoyasha7.oopregistrationproject.controller.DataFormatValidator;
-import com.github.nekoyasha7.oopregistrationproject.model.Student;
+import br.com.ifba.giovaneneves.oopregistrationproject.service.StudentService;
+import br.com.ifba.giovaneneves.oopregistrationproject.controller.DataFormatValidator;
+import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
 
 import java.time.LocalDate;
 
@@ -268,8 +268,8 @@ public class EditStudent_GUI extends javax.swing.JFrame {
                     StudentService studentService = new StudentService();
 
                     //--+ Registers the new student in the database +--//
-                    studentService.updateStudent(student);
-                    JOptionPane.showMessageDialog(null, "Student successfully updated", "Update", JOptionPane.INFORMATION_MESSAGE);
+                    if(studentService.updateStudent(student, Student.class))
+                        JOptionPane.showMessageDialog(null, "Student successfully updated", "Update", JOptionPane.INFORMATION_MESSAGE);
                 }
 
             }

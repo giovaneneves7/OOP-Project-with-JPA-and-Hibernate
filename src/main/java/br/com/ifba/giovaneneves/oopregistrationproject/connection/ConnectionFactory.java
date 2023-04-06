@@ -1,9 +1,8 @@
-package com.github.nekoyasha7.oopregistrationproject.connection;
+package br.com.ifba.giovaneneves.oopregistrationproject.connection;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.swing.JOptionPane;
 
 /**
  *

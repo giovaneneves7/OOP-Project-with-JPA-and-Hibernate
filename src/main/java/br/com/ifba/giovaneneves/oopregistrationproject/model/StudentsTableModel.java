@@ -1,4 +1,4 @@
-package com.github.nekoyasha7.oopregistrationproject.model;
+package br.com.ifba.giovaneneves.oopregistrationproject.model;
 
 //--+ Imports +--//
 import java.util.ArrayList;

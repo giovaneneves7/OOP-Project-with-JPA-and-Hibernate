@@ -1,5 +1,5 @@
 //--+ Package +--//
-package com.github.nekoyasha7.oopregistrationproject.model;
+package br.com.ifba.giovaneneves.oopregistrationproject.model;
 //--+ END Package +--//
 
 //--+ Imports +--//
@@ -7,9 +7,6 @@ import java.time.LocalDate;
         
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 //--+ END Imports +--//
 
 /**
@@ -18,14 +15,9 @@ import javax.persistence.GenerationType;
  */
 @Entity
 @Table (name = "students")
-public class Student {
+public class Student extends AbstractEntity{
     
     //----------------------------------------------{ ATTRIBUTES }----------------------------------------------//
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    
     private String name;
     private String registrationNumber;
     private LocalDate birthDate;
@@ -34,15 +26,6 @@ public class Student {
     private float averageGrades;
     
     //----------------------------------------------{ GETTERS AND SETTERS}----------------------------------------------//
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     
     public String getName() {
         return name;

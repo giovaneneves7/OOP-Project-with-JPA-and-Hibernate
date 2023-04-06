@@ -1,9 +1,9 @@
-package com.github.nekoyasha7.oopregistrationproject.view;
+package br.com.ifba.giovaneneves.oopregistrationproject.view;
 
 //--+ Imports +--//
-import com.github.nekoyasha7.oopregistrationproject.service.StudentService;
-import com.github.nekoyasha7.oopregistrationproject.model.StudentsTableModel;
-import com.github.nekoyasha7.oopregistrationproject.model.Student;
+import br.com.ifba.giovaneneves.oopregistrationproject.service.StudentService;
+import br.com.ifba.giovaneneves.oopregistrationproject.model.StudentsTableModel;
+import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
 
 import java.util.Collections;
 import java.util.List;

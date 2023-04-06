@@ -1,4 +1,4 @@
-package com.github.nekoyasha7.oopregistrationproject.controller;
+package br.com.ifba.giovaneneves.oopregistrationproject.controller;
 
 //--+ Imports +--//
 import java.time.LocalDate;
