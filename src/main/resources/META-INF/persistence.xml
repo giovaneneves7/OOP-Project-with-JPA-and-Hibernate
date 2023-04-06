@@ -7,7 +7,7 @@
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>com.github.nekoyasha7.oopregistrationproject.model.Student</class>
+        <class>br.com.ifba.giovaneneves.oopregistrationproject.model.Student</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
