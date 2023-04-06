@@ -7,30 +7,38 @@ import br.com.ifba.giovaneneves.oopregistrationproject.model.AbstractEntity;
 import javax.persistence.EntityManager;
 import javax.swing.JOptionPane;
 
-public class GenericDAO<T extends AbstractEntity> {
+public class GenericDAO<Entity extends AbstractEntity> {
 
-    private final ConnectionFactory connectionFactory;
+    private ConnectionFactory connectionFactory;
+
+    public ConnectionFactory getConnectionFactory() {
+        return connectionFactory;
+    }
+
+    public void setConnectionFactory(ConnectionFactory connectionFactory) {
+        this.connectionFactory = connectionFactory;
+        connectionFactory.connect();
+    }
 
     public GenericDAO(){
 
-        connectionFactory = new ConnectionFactory();
-        connectionFactory.connect();
+        this.setConnectionFactory(new ConnectionFactory());
 
     }
 
     /**
      *
-     * Inserts a T int the database
-     * @param t to be added to the database.
+     * Inserts an Entity in the database
+     * @param entity to be added to the database.
      */
-    public void add(T t){
+    public void add(Entity entity){
 
-        EntityManager entityManager = connectionFactory.getEntityManager();
+        EntityManager entityManager = this.getConnectionFactory().getEntityManager();
 
         try{
 
             entityManager.getTransaction().begin();
-            entityManager.persist(t);
+            entityManager.persist(entity);
             entityManager.getTransaction().commit();
 
         } catch(Exception e){
@@ -49,37 +57,37 @@ public class GenericDAO<T extends AbstractEntity> {
      *
      * Search a student in the database
      * @param id of the student to be searched.
-     * @param type of class.
-     * @return T with the specified ID, null otherwise.
+     * @param entityType of class.
+     * @return Entity with the specified ID, null otherwise.
      */
-    public T findById(int id, Class<T> type){
+    public Entity findById(int id, Class<Entity> entityType){
 
-        EntityManager entityManager = connectionFactory.getEntityManager();
+        EntityManager entityManager = this.getConnectionFactory().getEntityManager();
 
-        T t = entityManager.find(type, id);
+        Entity entity = entityManager.find(entityType, id);
 
         entityManager.close();
 
-        return t;
+        return entity;
     }
 
     /**
      *
      * @param id of the student to be removed from the database.
-     * @param type of class.
+     * @param entityType of class.
      * @return true if the student exists, false otherwise.
      */
-    public boolean remove(int id, Class<T> type){
+    public boolean remove(int id, Class<Entity> entityType){
 
         boolean wasRemoved = false;
-        EntityManager entityManager = connectionFactory.getEntityManager();
+        EntityManager entityManager = this.getConnectionFactory().getEntityManager();
 
-        T tToBeRemoved = entityManager.find(type, id);
+        Entity entityToBeRemoved = entityManager.find(entityType, id);
 
-        if(tToBeRemoved != null){
+        if(entityToBeRemoved != null){
 
             entityManager.getTransaction().begin();
-            entityManager.remove(tToBeRemoved);
+            entityManager.remove(entityToBeRemoved);
             entityManager.getTransaction().commit();
 
             wasRemoved = true;
@@ -92,19 +100,19 @@ public class GenericDAO<T extends AbstractEntity> {
 
     /**
      *
-     * @param t to be updated.
+     * @param entity to be updated.
      * @return true if the student exists in the database and the update was successful, false otherwise.
      */
-    public boolean update(T t, Class<T> type){
+    public boolean update(Entity entity, Class<Entity> type){
 
         boolean wasUpdated = false;
-        EntityManager entityManager = connectionFactory.getEntityManager();
-        T existingT = entityManager.find(type, t.getId());
+        EntityManager entityManager = this.getConnectionFactory().getEntityManager();
+        Entity existingEntity = entityManager.find(type, entity.getId());
         try{
 
             entityManager.getTransaction().begin();
-            entityManager.detach(existingT);
-            entityManager.merge(t);
+            entityManager.detach(existingEntity);
+            entityManager.merge(entity);
             entityManager.getTransaction().commit();
             wasUpdated = true;
 
