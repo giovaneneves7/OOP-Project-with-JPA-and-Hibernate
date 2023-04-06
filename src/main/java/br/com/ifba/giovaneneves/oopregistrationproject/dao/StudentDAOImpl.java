@@ -9,12 +9,20 @@ import java.util.List;
 //--+ END Imports +--//
 
 public class StudentDAOImpl extends StudentDAO{
-    private final ConnectionFactory connectionFactory;
+    private ConnectionFactory connectionFactory;
+
+    public ConnectionFactory getConnectionFactory() {
+        return connectionFactory;
+    }
+
+    public void setConnectionFactory(ConnectionFactory connectionFactory) {
+        this.connectionFactory = connectionFactory;
+        connectionFactory.connect();
+    }
 
     public StudentDAOImpl(){
 
-        connectionFactory = new ConnectionFactory();
-        connectionFactory.connect();
+        this.setConnectionFactory(new ConnectionFactory());
 
     }
 
@@ -26,7 +34,7 @@ public class StudentDAOImpl extends StudentDAO{
     @Override
     public List<Student> listStudents(){
 
-        EntityManager entityManager = connectionFactory.getEntityManager();
+        EntityManager entityManager = this.getConnectionFactory().getEntityManager();
 
 
         return entityManager.createQuery("SELECT s FROM Student s", Student.class).getResultList();
