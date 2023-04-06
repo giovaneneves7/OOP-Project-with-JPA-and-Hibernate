@@ -12,8 +12,8 @@
 <p align="center"> <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/tree/master/src/main/java/com/github/nekoyasha7/oopregistrationproject/connection"> Connection </a> | <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/tree/master/src/main/java/com/github/nekoyasha7/oopregistrationproject/model"> Model </a> | <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/tree/master/src/main/java/com/github/nekoyasha7/oopregistrationproject/view"> View</a> | <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/tree/master/src/main/java/com/github/nekoyasha7/oopregistrationproject/controller"> Controller </a> | <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/tree/master/src/main/java/com/github/nekoyasha7/oopregistrationproject/dao"> DAO </a> | <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/tree/master/src/main/java/com/github/nekoyasha7/oopregistrationproject/service"> Service </a> </p>
 <h2> <p align="center">  About: </p> </h2>
 
-*This is a project that simulates a student management system, which saves student data in a database with Hibernate ORM. Check out the wiki for details.*
-
+*This is a project that simulates a student management system, which saves student data in a database with Hibernate ORM. Check out the wiki for details:*
+<p align="center"> <h3> <a href="https://github.com/NekoYasha7/OOP-Project-with-JPA-and-Hibernate/wiki"> Project Wiki </a> </h3></p>
 <hr>
 
 <h2><p align="center"> 🛠 Features: </p></h2>
