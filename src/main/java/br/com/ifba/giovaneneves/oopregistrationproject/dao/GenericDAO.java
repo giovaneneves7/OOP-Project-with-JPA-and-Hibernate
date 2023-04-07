@@ -1,29 +1,27 @@
 package br.com.ifba.giovaneneves.oopregistrationproject.dao;
 
-
-import br.com.ifba.giovaneneves.oopregistrationproject.connection.ConnectionFactory;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.AbstractEntity;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.swing.JOptionPane;
 
 public class GenericDAO<Entity extends AbstractEntity> {
 
-    private ConnectionFactory connectionFactory;
+    private static EntityManager entityManager;
 
-    public ConnectionFactory getConnectionFactory() {
-        return connectionFactory;
+    static{
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("sql10610591");
+        setEntityManager(factory.createEntityManager());
     }
 
-    public void setConnectionFactory(ConnectionFactory connectionFactory) {
-        this.connectionFactory = connectionFactory;
-        connectionFactory.connect();
+    public static EntityManager getEntityManager() {
+        return entityManager;
     }
 
-    public GenericDAO(){
-
-        this.setConnectionFactory(new ConnectionFactory());
-
+    public static void setEntityManager(EntityManager entityManagerInstance) {
+        entityManager = entityManagerInstance;
     }
 
     /**
@@ -33,23 +31,19 @@ public class GenericDAO<Entity extends AbstractEntity> {
      */
     public void add(Entity entity){
 
-        EntityManager entityManager = this.getConnectionFactory().getEntityManager();
-
         try{
 
-            entityManager.getTransaction().begin();
-            entityManager.persist(entity);
-            entityManager.getTransaction().commit();
+            getEntityManager().getTransaction().begin();
+            getEntityManager().persist(entity);
+            getEntityManager().getTransaction().commit();
 
         } catch(Exception e){
 
             JOptionPane.showMessageDialog(null, "Add error!", "Add", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
+            getEntityManager().getTransaction().rollback();
 
-        } finally {
-            entityManager.close();
         }
-
 
     }
 
@@ -62,11 +56,7 @@ public class GenericDAO<Entity extends AbstractEntity> {
      */
     public Entity findById(int id, Class<Entity> entityType){
 
-        EntityManager entityManager = this.getConnectionFactory().getEntityManager();
-
-        Entity entity = entityManager.find(entityType, id);
-
-        entityManager.close();
+        Entity entity = getEntityManager().find(entityType, id);
 
         return entity;
     }
@@ -80,20 +70,27 @@ public class GenericDAO<Entity extends AbstractEntity> {
     public boolean remove(int id, Class<Entity> entityType){
 
         boolean wasRemoved = false;
-        EntityManager entityManager = this.getConnectionFactory().getEntityManager();
 
-        Entity entityToBeRemoved = entityManager.find(entityType, id);
+        Entity entityToBeRemoved = getEntityManager().find(entityType, id);
 
         if(entityToBeRemoved != null){
 
-            entityManager.getTransaction().begin();
-            entityManager.remove(entityToBeRemoved);
-            entityManager.getTransaction().commit();
+            try{
 
-            wasRemoved = true;
+                getEntityManager().getTransaction().begin();
+                getEntityManager().remove(entityToBeRemoved);
+                getEntityManager().getTransaction().commit();
+
+                wasRemoved = true;
+
+            } catch(Exception ex){
+
+                ex.printStackTrace();
+                getEntityManager().getTransaction().rollback();
+
+            }
+
         }
-
-        entityManager.close();
 
         return wasRemoved;
     }
@@ -106,24 +103,21 @@ public class GenericDAO<Entity extends AbstractEntity> {
     public boolean update(Entity entity, Class<Entity> type){
 
         boolean wasUpdated = false;
-        EntityManager entityManager = this.getConnectionFactory().getEntityManager();
-        Entity existingEntity = entityManager.find(type, entity.getId());
+
+        Entity existingEntity = getEntityManager().find(type, entity.getId());
         try{
 
-            entityManager.getTransaction().begin();
-            entityManager.detach(existingEntity);
-            entityManager.merge(entity);
-            entityManager.getTransaction().commit();
+            getEntityManager().getTransaction().begin();
+            getEntityManager().detach(existingEntity);
+            getEntityManager().merge(entity);
+            getEntityManager().getTransaction().commit();
             wasUpdated = true;
 
         } catch(Exception e){
 
             JOptionPane.showMessageDialog(null, "Update error!" ,"Update", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
-
-        } finally {
-
-            entityManager.close();
+            getEntityManager().getTransaction().rollback();
 
         }
 
