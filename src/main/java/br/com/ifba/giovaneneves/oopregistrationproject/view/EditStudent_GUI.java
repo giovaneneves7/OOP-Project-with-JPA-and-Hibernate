@@ -63,7 +63,7 @@ public class EditStudent_GUI extends javax.swing.JFrame {
         jPnlBackgroundTopMenu.setBackground(new java.awt.Color(255, 255, 255));
         jPnlBackgroundTopMenu.setLayout(null);
 
-        jBtnMinimize.setBackground(new java.awt.Color(255, 139, 73));
+        jBtnMinimize.setBackground(new java.awt.Color(0, 153, 51));
         jBtnMinimize.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBtnMinimize.setForeground(new java.awt.Color(255, 255, 255));
         jBtnMinimize.setText("-");
@@ -77,7 +77,7 @@ public class EditStudent_GUI extends javax.swing.JFrame {
         jPnlBackgroundTopMenu.add(jBtnMinimize);
         jBtnMinimize.setBounds(510, 10, 40, 23);
 
-        jBtnClose.setBackground(new java.awt.Color(255, 139, 73));
+        jBtnClose.setBackground(new java.awt.Color(255, 0, 0));
         jBtnClose.setForeground(new java.awt.Color(255, 255, 255));
         jBtnClose.setText("X");
         jBtnClose.setBorderPainted(false);
@@ -93,7 +93,7 @@ public class EditStudent_GUI extends javax.swing.JFrame {
         getContentPane().add(jPnlBackgroundTopMenu);
         jPnlBackgroundTopMenu.setBounds(10, 0, 620, 40);
 
-        jPanel1.setBackground(new java.awt.Color(255, 139, 73));
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setLayout(null);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -136,7 +136,7 @@ public class EditStudent_GUI extends javax.swing.JFrame {
         txtBirthDate.setBounds(40, 150, 230, 40);
 
         btnUpdate.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnUpdate.setForeground(new java.awt.Color(255, 139, 73));
+        btnUpdate.setForeground(new java.awt.Color(0, 153, 51));
         btnUpdate.setText("UPDATE");
         btnUpdate.setFocusPainted(false);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {

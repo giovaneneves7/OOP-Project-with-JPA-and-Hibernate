@@ -47,9 +47,35 @@ public class Students_GUI extends javax.swing.JFrame {
         tableModel.getStudentList().addAll(students);
 
         tableModel.fireTableDataChanged();
-
+        loadDataLabels();
     }
 
+    
+    /**
+     * Sets the values of the statistics labels.
+     */
+    public void loadDataLabels(){
+    
+        
+        float sum = 0;
+        for(int i = 0; i < tableModel.getStudentList().size(); i++)
+            for(float grade : tableModel.getStudentList().get(i).getGrades())
+                sum += grade;
+        
+        float average =  (sum / (tableModel.getStudentList().size() * 3));
+        
+        int totalApproved = 0;
+        for(Student student  : tableModel.getStudentList()){
+            if(student.getAverageGrades() > 7.0)
+                totalApproved++;
+        }
+        
+        this.lblNumberAverage.setText(String.valueOf(average));
+        this.lblNumberTotalStudents.setText(String.valueOf(tableModel.getStudentList().size()));
+        this.lblNumberApproved.setText(String.valueOf(totalApproved));
+        
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,17 +87,28 @@ public class Students_GUI extends javax.swing.JFrame {
 
         jPnlBackground = new javax.swing.JPanel();
         jPnlBackgroundTopMenu = new javax.swing.JPanel();
-        jBtnMinimize = new javax.swing.JButton();
         jPnlBackgroundOptionsMenu = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
-        lblOptions = new javax.swing.JLabel();
+        jBtnAddNewEntry = new javax.swing.JButton();
+        lblDashboard = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblStudents = new javax.swing.JTable();
-        btnRefresh = new javax.swing.JButton();
-        jBtnAddNewEntry = new javax.swing.JButton();
-        jBtnClose = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
+        pnlAverage = new javax.swing.JPanel();
+        lblAverage = new javax.swing.JLabel();
+        lblNumberAverage = new javax.swing.JLabel();
+        pnlApproved = new javax.swing.JPanel();
+        lblApproved = new javax.swing.JLabel();
+        lblNumberApproved = new javax.swing.JLabel();
+        pnlSideMenuOptions = new javax.swing.JPanel();
         btnEdit = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
+        jBtnMinimize = new javax.swing.JButton();
+        jBtnClose = new javax.swing.JButton();
+        lblSideMenuOptions = new javax.swing.JLabel();
+        pnlTotalStudents1 = new javax.swing.JPanel();
+        lblTotalStudents = new javax.swing.JLabel();
+        lblNumberTotalStudents = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -82,24 +119,7 @@ public class Students_GUI extends javax.swing.JFrame {
         jPnlBackgroundTopMenu.setBackground(new java.awt.Color(255, 255, 255));
         jPnlBackgroundTopMenu.setLayout(null);
 
-        jBtnMinimize.setBackground(new java.awt.Color(255, 139, 73));
-        jBtnMinimize.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jBtnMinimize.setForeground(new java.awt.Color(255, 255, 255));
-        jBtnMinimize.setText("-");
-        jBtnMinimize.setBorderPainted(false);
-        jBtnMinimize.setFocusPainted(false);
-        jBtnMinimize.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnMinimizeActionPerformed(evt);
-            }
-        });
-        jPnlBackgroundTopMenu.add(jBtnMinimize);
-        jBtnMinimize.setBounds(530, 10, 80, 20);
-
-        jPnlBackground.add(jPnlBackgroundTopMenu);
-        jPnlBackgroundTopMenu.setBounds(10, 0, 620, 40);
-
-        jPnlBackgroundOptionsMenu.setBackground(new java.awt.Color(255, 139, 73));
+        jPnlBackgroundOptionsMenu.setBackground(new java.awt.Color(51, 51, 51));
         jPnlBackgroundOptionsMenu.setLayout(null);
 
         txtSearch.setText("Search");
@@ -114,18 +134,34 @@ public class Students_GUI extends javax.swing.JFrame {
             }
         });
         jPnlBackgroundOptionsMenu.add(txtSearch);
-        txtSearch.setBounds(91, 9, 530, 30);
+        txtSearch.setBounds(421, 9, 200, 30);
 
-        lblOptions.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblOptions.setForeground(new java.awt.Color(255, 255, 255));
-        lblOptions.setText("Options");
-        jPnlBackgroundOptionsMenu.add(lblOptions);
-        lblOptions.setBounds(10, 10, 70, 17);
+        jBtnAddNewEntry.setBackground(new java.awt.Color(0, 204, 102));
+        jBtnAddNewEntry.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jBtnAddNewEntry.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnAddNewEntry.setText("ADD");
+        jBtnAddNewEntry.setFocusPainted(false);
+        jBtnAddNewEntry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAddNewEntryActionPerformed(evt);
+            }
+        });
+        jPnlBackgroundOptionsMenu.add(jBtnAddNewEntry);
+        jBtnAddNewEntry.setBounds(350, 10, 60, 30);
 
-        jPnlBackground.add(jPnlBackgroundOptionsMenu);
-        jPnlBackgroundOptionsMenu.setBounds(10, 40, 620, 40);
+        lblDashboard.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblDashboard.setForeground(new java.awt.Color(255, 255, 255));
+        lblDashboard.setText("DASHBOARD");
+        jPnlBackgroundOptionsMenu.add(lblDashboard);
+        lblDashboard.setBounds(10, 10, 140, 17);
 
-        tblStudents.setBackground(new java.awt.Color(255, 139, 73));
+        jPnlBackgroundTopMenu.add(jPnlBackgroundOptionsMenu);
+        jPnlBackgroundOptionsMenu.setBounds(0, 0, 620, 40);
+
+        jPnlBackground.add(jPnlBackgroundTopMenu);
+        jPnlBackgroundTopMenu.setBounds(10, 0, 620, 40);
+
+        tblStudents.setBackground(new java.awt.Color(51, 51, 51));
         tblStudents.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         tblStudents.setForeground(new java.awt.Color(255, 255, 255));
         tblStudents.setModel(new javax.swing.table.DefaultTableModel(
@@ -142,82 +178,77 @@ public class Students_GUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblStudents);
 
         jPnlBackground.add(jScrollPane1);
-        jScrollPane1.setBounds(100, 90, 530, 270);
+        jScrollPane1.setBounds(100, 110, 530, 230);
 
-        btnRefresh.setBackground(new java.awt.Color(255, 139, 73));
-        btnRefresh.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
-        btnRefresh.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6kvAMRmc2EoLE1bUda176Uzu45p4gMcy3YRy7jA48x8uq8pl4JKKE_DiETCYS80RiIr-MiR4nogvHoCddZiEBmFEU3120C5BwTD9f3zboGt379Bjfp7KmmDBRpyqqE03o5HDqCP15jJ4UKOcn5YExBXrmBqn5wByhguQB1UI-jhs-Nnvgr5ihhCn4GQ/s16/refresh.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
-        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRefreshActionPerformed(evt);
-            }
-        });
-        jPnlBackground.add(btnRefresh);
-        btnRefresh.setBounds(10, 270, 60, 40);
+        pnlAverage.setBackground(new java.awt.Color(0, 204, 102));
 
-        jBtnAddNewEntry.setBackground(new java.awt.Color(255, 139, 73));
-        jBtnAddNewEntry.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jBtnAddNewEntry.setForeground(new java.awt.Color(255, 255, 255));
-        jBtnAddNewEntry.setText("+");
-        jBtnAddNewEntry.setFocusPainted(false);
-        jBtnAddNewEntry.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnAddNewEntryActionPerformed(evt);
-            }
-        });
-        jPnlBackground.add(jBtnAddNewEntry);
-        jBtnAddNewEntry.setBounds(10, 90, 60, 40);
+        lblAverage.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblAverage.setForeground(new java.awt.Color(255, 255, 255));
+        lblAverage.setText("Average");
 
-        jBtnClose.setBackground(new java.awt.Color(255, 139, 73));
-        jBtnClose.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jBtnClose.setForeground(new java.awt.Color(255, 255, 255));
-        jBtnClose.setText("X");
-        jBtnClose.setBorderPainted(false);
-        jBtnClose.setFocusPainted(false);
-        jBtnClose.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnCloseActionPerformed(evt);
-            }
-        });
-        jPnlBackground.add(jBtnClose);
-        jBtnClose.setBounds(10, 320, 60, 40);
+        lblNumberAverage.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblNumberAverage.setForeground(new java.awt.Color(255, 255, 255));
+        lblNumberAverage.setText("0");
 
-        btnDelete.setBackground(new java.awt.Color(255, 139, 73));
-        btnDelete.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnDelete.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihC3843m67SQgMVXIJLcaDpi02CJswtTbS5ZD7X4afobE9-Gvj0a1vPkjH9Az428tTG2188FRIIYp99a4T3hfl8yiQVJZ7w-dRrJVOMo1pnkVDvLVYORuTnBAAfkNuXn5tLQ8RTGhWjDTV2TsxJlMdsnHRPUJd2Yd3ZmNZoQlf4TuAQK4d7XTaNDLQyQ/s16/trash-can.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
-        btnDelete.setBorderPainted(false);
-        btnDelete.setFocusPainted(false);
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-        jPnlBackground.add(btnDelete);
-        btnDelete.setBounds(10, 190, 60, 40);
+        javax.swing.GroupLayout pnlAverageLayout = new javax.swing.GroupLayout(pnlAverage);
+        pnlAverage.setLayout(pnlAverageLayout);
+        pnlAverageLayout.setHorizontalGroup(
+            pnlAverageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAverageLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlAverageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAverageLayout.createSequentialGroup()
+                        .addComponent(lblAverage)
+                        .addContainerGap(17, Short.MAX_VALUE))
+                    .addComponent(lblNumberAverage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        pnlAverageLayout.setVerticalGroup(
+            pnlAverageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAverageLayout.createSequentialGroup()
+                .addComponent(lblNumberAverage, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(lblAverage))
+        );
 
-        btnEdit.setBackground(new java.awt.Color(255, 139, 73));
+        jPnlBackground.add(pnlAverage);
+        pnlAverage.setBounds(310, 50, 70, 50);
+
+        pnlApproved.setBackground(new java.awt.Color(0, 204, 102));
+
+        lblApproved.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblApproved.setForeground(new java.awt.Color(255, 255, 255));
+        lblApproved.setText("Approved");
+
+        lblNumberApproved.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblNumberApproved.setForeground(new java.awt.Color(255, 255, 255));
+        lblNumberApproved.setText("0");
+
+        javax.swing.GroupLayout pnlApprovedLayout = new javax.swing.GroupLayout(pnlApproved);
+        pnlApproved.setLayout(pnlApprovedLayout);
+        pnlApprovedLayout.setHorizontalGroup(
+            pnlApprovedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlApprovedLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlApprovedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNumberApproved, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlApprovedLayout.createSequentialGroup()
+                        .addComponent(lblApproved)
+                        .addContainerGap(9, Short.MAX_VALUE))))
+        );
+        pnlApprovedLayout.setVerticalGroup(
+            pnlApprovedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlApprovedLayout.createSequentialGroup()
+                .addComponent(lblNumberApproved, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(lblApproved))
+        );
+
+        jPnlBackground.add(pnlApproved);
+        pnlApproved.setBounds(390, 50, 70, 50);
+
+        pnlSideMenuOptions.setBackground(new java.awt.Color(51, 51, 51));
+
+        btnEdit.setBackground(new java.awt.Color(0, 204, 102));
         btnEdit.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setIcon(new javax.swing.JLabel() {
@@ -238,8 +269,154 @@ public class Students_GUI extends javax.swing.JFrame {
                 btnEditActionPerformed(evt);
             }
         });
-        jPnlBackground.add(btnEdit);
-        btnEdit.setBounds(10, 140, 60, 40);
+
+        btnDelete.setBackground(new java.awt.Color(255, 0, 0));
+        btnDelete.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihC3843m67SQgMVXIJLcaDpi02CJswtTbS5ZD7X4afobE9-Gvj0a1vPkjH9Az428tTG2188FRIIYp99a4T3hfl8yiQVJZ7w-dRrJVOMo1pnkVDvLVYORuTnBAAfkNuXn5tLQ8RTGhWjDTV2TsxJlMdsnHRPUJd2Yd3ZmNZoQlf4TuAQK4d7XTaNDLQyQ/s16/trash-can.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        btnDelete.setBorderPainted(false);
+        btnDelete.setFocusPainted(false);
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        btnRefresh.setBackground(new java.awt.Color(0, 204, 102));
+        btnRefresh.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btnRefresh.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6kvAMRmc2EoLE1bUda176Uzu45p4gMcy3YRy7jA48x8uq8pl4JKKE_DiETCYS80RiIr-MiR4nogvHoCddZiEBmFEU3120C5BwTD9f3zboGt379Bjfp7KmmDBRpyqqE03o5HDqCP15jJ4UKOcn5YExBXrmBqn5wByhguQB1UI-jhs-Nnvgr5ihhCn4GQ/s16/refresh.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+
+        jBtnMinimize.setBackground(new java.awt.Color(0, 204, 102));
+        jBtnMinimize.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jBtnMinimize.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnMinimize.setText("-");
+        jBtnMinimize.setBorderPainted(false);
+        jBtnMinimize.setFocusPainted(false);
+        jBtnMinimize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnMinimizeActionPerformed(evt);
+            }
+        });
+
+        jBtnClose.setBackground(new java.awt.Color(255, 0, 0));
+        jBtnClose.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jBtnClose.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnClose.setText("X");
+        jBtnClose.setBorderPainted(false);
+        jBtnClose.setFocusPainted(false);
+        jBtnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnCloseActionPerformed(evt);
+            }
+        });
+
+        lblSideMenuOptions.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblSideMenuOptions.setForeground(new java.awt.Color(255, 255, 255));
+        lblSideMenuOptions.setText("OPTIONS");
+
+        javax.swing.GroupLayout pnlSideMenuOptionsLayout = new javax.swing.GroupLayout(pnlSideMenuOptions);
+        pnlSideMenuOptions.setLayout(pnlSideMenuOptionsLayout);
+        pnlSideMenuOptionsLayout.setHorizontalGroup(
+            pnlSideMenuOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSideMenuOptionsLayout.createSequentialGroup()
+                .addGroup(pnlSideMenuOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSideMenuOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jBtnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pnlSideMenuOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnlSideMenuOptionsLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jBtnMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlSideMenuOptionsLayout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addGroup(pnlSideMenuOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(pnlSideMenuOptionsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblSideMenuOptions, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlSideMenuOptionsLayout.setVerticalGroup(
+            pnlSideMenuOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSideMenuOptionsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblSideMenuOptions)
+                .addGap(14, 14, 14)
+                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBtnClose)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBtnMinimize)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        jPnlBackground.add(pnlSideMenuOptions);
+        pnlSideMenuOptions.setBounds(10, 110, 80, 230);
+
+        pnlTotalStudents1.setBackground(new java.awt.Color(0, 204, 102));
+        pnlTotalStudents1.setForeground(new java.awt.Color(0, 204, 255));
+
+        lblTotalStudents.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTotalStudents.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotalStudents.setText("Students");
+
+        lblNumberTotalStudents.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblNumberTotalStudents.setForeground(new java.awt.Color(255, 255, 255));
+        lblNumberTotalStudents.setText("0");
+
+        javax.swing.GroupLayout pnlTotalStudents1Layout = new javax.swing.GroupLayout(pnlTotalStudents1);
+        pnlTotalStudents1.setLayout(pnlTotalStudents1Layout);
+        pnlTotalStudents1Layout.setHorizontalGroup(
+            pnlTotalStudents1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTotalStudents1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTotalStudents)
+                .addContainerGap(14, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTotalStudents1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblNumberTotalStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        pnlTotalStudents1Layout.setVerticalGroup(
+            pnlTotalStudents1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTotalStudents1Layout.createSequentialGroup()
+                .addComponent(lblNumberTotalStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTotalStudents))
+        );
+
+        jPnlBackground.add(pnlTotalStudents1);
+        pnlTotalStudents1.setBounds(230, 50, 70, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -249,10 +426,10 @@ public class Students_GUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPnlBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPnlBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(639, 372));
+        setSize(new java.awt.Dimension(639, 353));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -297,6 +474,7 @@ public class Students_GUI extends javax.swing.JFrame {
             id = tableModel.getStudentList().get(tblStudents.getSelectedRow()).getId();
 
         removeStudent(id);
+        loadData();
 
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -445,7 +623,18 @@ public class Students_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPnlBackgroundOptionsMenu;
     private javax.swing.JPanel jPnlBackgroundTopMenu;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblOptions;
+    private javax.swing.JLabel lblApproved;
+    private javax.swing.JLabel lblAverage;
+    private javax.swing.JLabel lblDashboard;
+    private javax.swing.JLabel lblNumberApproved;
+    private javax.swing.JLabel lblNumberAverage;
+    private javax.swing.JLabel lblNumberTotalStudents;
+    private javax.swing.JLabel lblSideMenuOptions;
+    private javax.swing.JLabel lblTotalStudents;
+    private javax.swing.JPanel pnlApproved;
+    private javax.swing.JPanel pnlAverage;
+    private javax.swing.JPanel pnlSideMenuOptions;
+    private javax.swing.JPanel pnlTotalStudents1;
     private javax.swing.JTable tblStudents;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
