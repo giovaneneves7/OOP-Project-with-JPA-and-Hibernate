@@ -34,9 +34,9 @@ public class StudentService {
      * Inserts a student int the database
      * @param student to be added to the database.
      */
-    public void addStudent(Student student){
+    public boolean saveStudent(Student student){
 
-        this.getStudentDaoImpl().add(student);
+        return this.getStudentDaoImpl().save(student);
 
     }
 
@@ -78,9 +78,9 @@ public class StudentService {
      * @param student to be updated.
      * @return true if the student exists in the database and the update was successful, false otherwise.
      */
-    public boolean updateStudent(Student student, Class<Student> type){
+    public boolean updateStudent(Student student){
 
-        return this.getStudentDaoImpl().update(student, type);
+        return this.getStudentDaoImpl().update(student, Student.class);
 
     }
 

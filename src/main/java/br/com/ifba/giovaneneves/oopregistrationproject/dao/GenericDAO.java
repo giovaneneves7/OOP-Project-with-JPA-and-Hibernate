@@ -29,13 +29,17 @@ public class GenericDAO<Entity extends AbstractEntity> {
      * Inserts an Entity in the database
      * @param entity to be added to the database.
      */
-    public void add(Entity entity){
+    public boolean save(Entity entity){
+
+        boolean successfullySaved = false;
 
         try{
 
             getEntityManager().getTransaction().begin();
             getEntityManager().persist(entity);
             getEntityManager().getTransaction().commit();
+
+            successfullySaved = true;
 
         } catch(Exception e){
 
@@ -44,6 +48,8 @@ public class GenericDAO<Entity extends AbstractEntity> {
             getEntityManager().getTransaction().rollback();
 
         }
+
+        return successfullySaved;
 
     }
 
