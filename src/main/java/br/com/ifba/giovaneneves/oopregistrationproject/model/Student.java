@@ -3,6 +3,9 @@ package br.com.ifba.giovaneneves.oopregistrationproject.model;
 //--+ END Package +--//
 
 //--+ Imports +--//
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import java.time.LocalDate;
         
 import javax.persistence.Entity;
@@ -13,8 +16,10 @@ import javax.persistence.Table;
  *
  * @author GiovaneNeves
  */
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table (name = "students")
+@Data
 public class Student extends AbstractEntity{
     
     //----------------------------------------------{ ATTRIBUTES }----------------------------------------------//
@@ -24,56 +29,6 @@ public class Student extends AbstractEntity{
     private int academicYear;
     private float[] grades = new float[3];
     private float averageGrades;
-    
-    //----------------------------------------------{ GETTERS AND SETTERS}----------------------------------------------//
-    
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getRegistrationNumber() {
-        return registrationNumber;
-    }
-
-    public void setRegistrationNumber(String registrationNumber) {
-        this.registrationNumber = registrationNumber;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public int getAcademicYear() {
-        return academicYear;
-    }
-
-    public void setAcademicYear(int academicYear) {
-        this.academicYear = academicYear;
-    }
-    
-    public float[] getGrades() {
-        return grades;
-    }
-
-    public void setGrades(float[] grades) {
-        this.grades = grades;
-    }
-
-    public float getAverageGrades() {
-        return averageGrades;
-    }
-
-    public void setAverageGrades(float averageGrades) {
-        this.averageGrades = averageGrades;
-    }
     
     
 }

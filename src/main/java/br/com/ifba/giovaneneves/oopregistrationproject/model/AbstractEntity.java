@@ -1,11 +1,16 @@
 package br.com.ifba.giovaneneves.oopregistrationproject.model;
 
+//--+ Imports +--//
+import lombok.Data;
+
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+//--+ END Imports +--//
 
 @MappedSuperclass
+@Data
 public class AbstractEntity {
 
     //----------------------------------------------{ ATTRIBUTES }----------------------------------------------//
@@ -14,13 +19,4 @@ public class AbstractEntity {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
 
-    //----------------------------------------------{ GETTERS AND SETTERS }----------------------------------------------//
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }
