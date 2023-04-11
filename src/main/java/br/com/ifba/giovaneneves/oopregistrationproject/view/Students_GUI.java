@@ -1,7 +1,7 @@
 package br.com.ifba.giovaneneves.oopregistrationproject.view;
 
 //--+ Imports +--//
-import br.com.ifba.giovaneneves.oopregistrationproject.service.StudentService;
+import br.com.ifba.giovaneneves.oopregistrationproject.controller.FacadeInstance;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.StudentsTableModel;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
 
@@ -36,8 +36,7 @@ public class Students_GUI extends javax.swing.JFrame {
      */
     private void loadData(){
 
-        StudentService studentService = new StudentService();
-        List<Student> students = studentService.listAllStudents();
+        List<Student> students = FacadeInstance.getInstance().listAllStudents();
 
         Collections.sort(students, (student1, student2) -> student1.getName().compareTo(student2.getName()));
 
@@ -464,6 +463,9 @@ public class Students_GUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnRefreshActionPerformed
 
+    /**
+     * Deletes a student from the list
+     */
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
 
         int id;
@@ -473,7 +475,7 @@ public class Students_GUI extends javax.swing.JFrame {
         else
             id = tableModel.getStudentList().get(tblStudents.getSelectedRow()).getId();
 
-        removeStudent(id);
+        FacadeInstance.getInstance().removeStudent(id);
         loadData();
 
     }//GEN-LAST:event_btnDeleteActionPerformed
@@ -485,8 +487,7 @@ public class Students_GUI extends javax.swing.JFrame {
         if(tblStudents.getSelectedRow() == -1){
 
             int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Input the student ID", "Edit", JOptionPane.INFORMATION_MESSAGE));
-            StudentService studentService = new StudentService();
-            student = studentService.findStudentById(id);
+            student = FacadeInstance.getInstance().findStudentById(id);
 
         }
         else
@@ -513,9 +514,8 @@ public class Students_GUI extends javax.swing.JFrame {
     public void searchByTypedText(){
         
         StudentsTableModel newTableModel = new StudentsTableModel();
-        StudentService studentService = new StudentService();
         
-        List<Student> students = studentService.listAllStudents();
+        List<Student> students = FacadeInstance.getInstance().listAllStudents();
                 
         //--+ Loads all data if the search field is empty +--//
         if(txtSearch.getText().isEmpty()){
@@ -537,43 +537,7 @@ public class Students_GUI extends javax.swing.JFrame {
         
         
     }
-    
-    /**
-     * Removes the selected row and delete the student in the row.
-     * @param id of the student to be deleted.
-     */
-    public void removeStudent(int id){
 
-        StudentService studentService = new StudentService();
-
-        if(studentService.removeStudent(id)){
-
-            ///--+ Checks if the row is selected +--//
-            if(tblStudents.getSelectedRow() != -1){
-
-                tableModel.removeRow(tblStudents.getSelectedRow());
-
-            } else{
-
-                int rowToRemove = -1;
-
-                //--+ Searches for the line number to be removed +--//
-                for(int i = 0; i < tblStudents.getRowCount(); i++){
-                    if(tableModel.getStudentList().get(i).getId() == id){
-                        rowToRemove = i;
-                    }
-                }
-
-                if(rowToRemove != -1){
-
-                    tableModel.removeRow(rowToRemove);
-
-                }
-            }
-        } else
-            JOptionPane.showMessageDialog(null, "Invalid student ID!", "Delete", JOptionPane.ERROR_MESSAGE);
-
-    }
     /**
      * @param args the command line arguments
      */
