@@ -17,11 +17,11 @@ import javax.swing.JOptionPane;
  *
  * @author GiovaneNeves
  */
-public class Students_GUI extends javax.swing.JFrame {
+public class StudentDashboardGUI extends javax.swing.JFrame {
 
     StudentsTableModel tableModel = new StudentsTableModel();
     
-    public Students_GUI() {
+    public StudentDashboardGUI() {
 
         initComponents();
         loadData();
@@ -449,7 +449,7 @@ public class Students_GUI extends javax.swing.JFrame {
 
     private void jBtnAddNewEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAddNewEntryActionPerformed
         
-        new AddStudent_GUI().setVisible(true);
+        new RegisterStudentGUI().setVisible(true);
     }//GEN-LAST:event_jBtnAddNewEntryActionPerformed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
@@ -458,7 +458,7 @@ public class Students_GUI extends javax.swing.JFrame {
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         
-        new Students_GUI().setVisible(true);
+        new StudentDashboardGUI().setVisible(true);
         dispose();
         
     }//GEN-LAST:event_btnRefreshActionPerformed
@@ -496,7 +496,7 @@ public class Students_GUI extends javax.swing.JFrame {
         if(student != null){
             
             dispose();
-            new EditStudent_GUI(student).setVisible(true);
+            new EditStudentGUI(student).setVisible(true);
             
         } else
             JOptionPane.showMessageDialog(null, "Invalid student ID!", "Edit", JOptionPane.ERROR_MESSAGE);
@@ -555,13 +555,13 @@ public class Students_GUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Students_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentDashboardGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Students_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentDashboardGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Students_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentDashboardGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Students_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentDashboardGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -571,7 +571,7 @@ public class Students_GUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Students_GUI().setVisible(true);
+                new StudentDashboardGUI().setVisible(true);
             }
         });
     }

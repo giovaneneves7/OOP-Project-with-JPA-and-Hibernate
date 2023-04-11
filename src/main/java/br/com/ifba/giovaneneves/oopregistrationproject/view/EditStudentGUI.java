@@ -3,7 +3,6 @@ package br.com.ifba.giovaneneves.oopregistrationproject.view;
 //--+ Imports +--//
 
 import br.com.ifba.giovaneneves.oopregistrationproject.controller.FacadeInstance;
-import br.com.ifba.giovaneneves.oopregistrationproject.service.StudentService;
 import br.com.ifba.giovaneneves.oopregistrationproject.controller.DataFormatValidator;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
 
@@ -16,15 +15,15 @@ import javax.swing.JOptionPane;
  *
  * @author GiovaneNeves
  */
-public class EditStudent_GUI extends javax.swing.JFrame {
+public class EditStudentGUI extends javax.swing.JFrame {
 
     public static Student student;
     
     /**
-     * Creates new form EditStudent_GUI.
+     * Creates new form EditStudentGUI.
      * @param studentToBeEdited and updated in the databse.
      */
-    public EditStudent_GUI(Student studentToBeEdited) {
+    public EditStudentGUI(Student studentToBeEdited) {
         initComponents();
         
         student = studentToBeEdited;
@@ -266,10 +265,8 @@ public class EditStudent_GUI extends javax.swing.JFrame {
                     student.setGrades(convertedGrades);
                     student.setAverageGrades(average);
 
-                    StudentService studentService = new StudentService();
-
-                    //--+ Registers the new student in the database +--//
-                    if(FacadeInstance.getInstance().saveStudent(student))
+                    //--+ Updates the student in the database +--//
+                    if(FacadeInstance.getInstance().updateStudent(student))
                         JOptionPane.showMessageDialog(null, "Student successfully updated", "Update", JOptionPane.INFORMATION_MESSAGE);
                 }
 
@@ -315,20 +312,20 @@ public class EditStudent_GUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditStudent_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditStudentGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditStudent_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditStudentGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditStudent_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditStudentGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditStudent_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditStudentGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditStudent_GUI(student).setVisible(true);
+                new EditStudentGUI(student).setVisible(true);
             }
         });
     }
