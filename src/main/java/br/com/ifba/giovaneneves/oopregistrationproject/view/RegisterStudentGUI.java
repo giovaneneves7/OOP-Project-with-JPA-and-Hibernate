@@ -248,7 +248,7 @@ public class AddStudent_GUI extends javax.swing.JFrame {
                     StudentService studentService = new StudentService();
 
                     //--+ Registers the new student in the database +--//
-                    studentService.addStudent(newStudent);
+                    studentService.saveStudent(newStudent);
                     JOptionPane.showMessageDialog(null, "Student successfully registered", "Registration", JOptionPane.INFORMATION_MESSAGE);
                     
                 }

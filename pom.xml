@@ -12,7 +12,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <exec.mainClass>br.com.ifba.giovaneneves.oopregistrationproject.view.Students_GUI</exec.mainClass>
+        <exec.mainClass>br.com.ifba.giovaneneves.oopregistrationproject.view.StudentDashboardGUI</exec.mainClass>
     </properties>
     
     <dependencies>

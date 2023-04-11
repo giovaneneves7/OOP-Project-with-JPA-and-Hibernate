@@ -2,6 +2,7 @@ package br.com.ifba.giovaneneves.oopregistrationproject.view;
 
 //--+ Imports +--//
 
+import br.com.ifba.giovaneneves.oopregistrationproject.controller.FacadeInstance;
 import br.com.ifba.giovaneneves.oopregistrationproject.service.StudentService;
 import br.com.ifba.giovaneneves.oopregistrationproject.controller.DataFormatValidator;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
@@ -203,7 +204,7 @@ public class EditStudent_GUI extends javax.swing.JFrame {
 
         //--+ Closes the window +--//
         if(JOptionPane.showConfirmDialog(null, "Are you sure you want to close this window?", "Close Warning",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
-        new Students_GUI().setVisible(true);
+        new StudentDashboardGUI().setVisible(true);
         dispose();
     }//GEN-LAST:event_jBtnCloseActionPerformed
 
@@ -268,7 +269,7 @@ public class EditStudent_GUI extends javax.swing.JFrame {
                     StudentService studentService = new StudentService();
 
                     //--+ Registers the new student in the database +--//
-                    if(studentService.updateStudent(student, Student.class))
+                    if(FacadeInstance.getInstance().saveStudent(student))
                         JOptionPane.showMessageDialog(null, "Student successfully updated", "Update", JOptionPane.INFORMATION_MESSAGE);
                 }
 
