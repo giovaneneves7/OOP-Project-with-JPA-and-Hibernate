@@ -1,6 +1,9 @@
 package br.com.ifba.giovaneneves.oopregistrationproject.model;
 
 //--+ Imports +--//
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +16,9 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author GiovaneNeves
  */
+
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class StudentsTableModel extends AbstractTableModel{
 
     //----------------------------------------------{ ATTRIBUTES }----------------------------------------------//
@@ -20,24 +26,6 @@ public class StudentsTableModel extends AbstractTableModel{
     private List<Student> studentList = new ArrayList<>();
     private String[] collumns = {"ID", "Name", "Registration", "Average grades", "Academic Year", "Age"};
 
-    //----------------------------------------------{ GETTERS AND SETTERS}----------------------------------------------//
-    public List<Student> getStudentList() {
-        return studentList;
-    }
-
-    public void setStudentList(List<Student> studentList) {
-        this.studentList = studentList;
-    }
-
-    public String[] getCollumns() {
-        return collumns;
-    }
-
-    public void setCollumns(String[] collumns) {
-        this.collumns = collumns;
-    }
-    
-    
     //----------------------------------------------{ METHODS}----------------------------------------------//
     
     @Override
