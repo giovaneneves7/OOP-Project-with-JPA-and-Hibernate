@@ -96,25 +96,22 @@ public class GenericDAO<Entity extends AbstractEntity> {
 
     /**
      *
-     * @param entity to be updated.
+     * @param entityToBeUpdated The entity to be updated.
      * @return true if the student exists in the database and the update was successful, false otherwise.
      */
-    public boolean update(Entity entity, Class<Entity> type){
+    public boolean update(Entity entityToBeUpdated){
 
         boolean wasUpdated = false;
 
-        Entity existingEntity = getEntityManager().find(type, entity.getId());
         try{
 
             getEntityManager().getTransaction().begin();
-            getEntityManager().detach(existingEntity);
-            getEntityManager().merge(entity);
+            getEntityManager().merge(entityToBeUpdated);
             getEntityManager().getTransaction().commit();
             wasUpdated = true;
 
         } catch(Exception e){
 
-            JOptionPane.showMessageDialog(null, "Update error!" ,"Update", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
             getEntityManager().getTransaction().rollback();
 

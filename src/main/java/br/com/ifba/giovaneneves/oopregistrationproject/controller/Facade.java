@@ -62,7 +62,7 @@ public class Facade implements IFacade{
      * @return true if the student exists in the database and the update was successful, false otherwise.
      */
     @Override
-    public boolean updateStudent(Student student) {
+    public boolean updateStudent(Student student) throws StudentNotFoundException {
         return studentService.updateStudent(student);
     }
 

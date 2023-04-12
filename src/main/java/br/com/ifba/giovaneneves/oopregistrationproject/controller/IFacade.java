@@ -42,7 +42,7 @@ public interface IFacade {
      * @param student to be updated.
      * @return true if the student exists in the database and the update was successful, false otherwise.
      */
-    boolean updateStudent(Student student);
+    boolean updateStudent(Student student) throws StudentNotFoundException;
 
 
 }
