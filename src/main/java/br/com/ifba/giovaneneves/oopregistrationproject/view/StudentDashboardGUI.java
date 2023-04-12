@@ -519,8 +519,7 @@ public class StudentDashboardGUI extends javax.swing.JFrame {
             dispose();
             new EditStudentGUI(student).setVisible(true);
             
-        } else
-            JOptionPane.showMessageDialog(null, "Invalid student ID!", "Edit", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void txtSearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyTyped
