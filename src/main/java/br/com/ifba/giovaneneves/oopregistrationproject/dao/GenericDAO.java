@@ -43,7 +43,7 @@ public class GenericDAO<Entity extends AbstractEntity> {
 
         } catch(Exception e){
 
-            JOptionPane.showMessageDialog(null, "Add error!", "Add", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error in getTrasaction!", "Save", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
             getEntityManager().getTransaction().rollback();
 
@@ -69,19 +69,14 @@ public class GenericDAO<Entity extends AbstractEntity> {
 
     /**
      *
-     * @param id of the student to be removed from the database.
-     * @param entityType of class.
+     * @param entityToBeRemoved The entity to be removed from the database.
      * @return true if the student exists, false otherwise.
      */
-    public boolean remove(int id, Class<Entity> entityType){
+    public boolean remove(Entity entityToBeRemoved){
 
         boolean wasRemoved = false;
 
-        Entity entityToBeRemoved = getEntityManager().find(entityType, id);
-
-        if(entityToBeRemoved != null){
-
-            try{
+        try{
 
                 getEntityManager().getTransaction().begin();
                 getEntityManager().remove(entityToBeRemoved);
@@ -95,8 +90,6 @@ public class GenericDAO<Entity extends AbstractEntity> {
                 getEntityManager().getTransaction().rollback();
 
             }
-
-        }
 
         return wasRemoved;
     }
