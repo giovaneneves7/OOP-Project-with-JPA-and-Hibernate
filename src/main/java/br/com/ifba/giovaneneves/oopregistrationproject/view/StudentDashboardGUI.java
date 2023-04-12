@@ -18,9 +18,10 @@ import javax.swing.JOptionPane;
  * @author GiovaneNeves
  */
 public class StudentDashboardGUI extends javax.swing.JFrame {
-
+    //----------------------------------{ METHODS }----------------------------------//
     StudentsTableModel tableModel = new StudentsTableModel();
-    
+
+    //----------------------------------{ CONSTRUCTOR }----------------------------------//
     public StudentDashboardGUI() {
 
         initComponents();
