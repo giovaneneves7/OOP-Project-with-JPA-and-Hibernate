@@ -9,13 +9,10 @@ import javax.swing.JOptionPane;
 
 public class GenericDAO<Entity extends AbstractEntity> {
 
+    //----------------------------------{ ATTRIBUTES }----------------------------------//
     private static EntityManager entityManager;
 
-    static{
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("sql10610591");
-        setEntityManager(factory.createEntityManager());
-    }
-
+    //----------------------------------{ GETTERS AND SETTERS }----------------------------------//
     public static EntityManager getEntityManager() {
         return entityManager;
     }
@@ -23,6 +20,13 @@ public class GenericDAO<Entity extends AbstractEntity> {
     public static void setEntityManager(EntityManager entityManagerInstance) {
         entityManager = entityManagerInstance;
     }
+
+    //----------------------------------{ METHODS }----------------------------------//
+    static{
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("sql10610591");
+        setEntityManager(factory.createEntityManager());
+    }
+
 
     /**
      *
