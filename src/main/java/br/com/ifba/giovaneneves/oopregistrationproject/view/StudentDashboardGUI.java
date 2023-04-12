@@ -2,6 +2,7 @@ package br.com.ifba.giovaneneves.oopregistrationproject.view;
 
 //--+ Imports +--//
 import br.com.ifba.giovaneneves.oopregistrationproject.controller.FacadeInstance;
+import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.StudentNotFoundException;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.StudentsTableModel;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
 
@@ -476,19 +477,38 @@ public class StudentDashboardGUI extends javax.swing.JFrame {
         else
             id = tableModel.getStudentList().get(tblStudents.getSelectedRow()).getId();
 
-        FacadeInstance.getInstance().removeStudent(id);
-        loadData();
+        try{
+
+            FacadeInstance.getInstance().removeStudent(id);
+            loadData();
+
+        } catch (StudentNotFoundException ex){
+
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Delete", JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+
+        }
 
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         
-        Student student;
+        Student student = null;
 
         if(tblStudents.getSelectedRow() == -1){
 
             int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Input the student ID", "Edit", JOptionPane.INFORMATION_MESSAGE));
-            student = FacadeInstance.getInstance().findStudentById(id);
+
+            try{
+
+                student = FacadeInstance.getInstance().findStudentById(id);
+
+            } catch (StudentNotFoundException ex){
+
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Edit", JOptionPane.ERROR_MESSAGE);
+                ex.printStackTrace();
+
+            }
 
         }
         else
