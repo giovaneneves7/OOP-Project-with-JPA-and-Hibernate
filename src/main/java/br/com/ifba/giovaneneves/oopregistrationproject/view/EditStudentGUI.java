@@ -4,6 +4,7 @@ package br.com.ifba.giovaneneves.oopregistrationproject.view;
 
 import br.com.ifba.giovaneneves.oopregistrationproject.controller.FacadeInstance;
 import br.com.ifba.giovaneneves.oopregistrationproject.controller.DataFormatValidator;
+import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.StudentNotFoundException;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
 
 import java.time.LocalDate;
@@ -265,9 +266,20 @@ public class EditStudentGUI extends javax.swing.JFrame {
                     student.setGrades(convertedGrades);
                     student.setAverageGrades(average);
 
-                    //--+ Updates the student in the database +--//
-                    if(FacadeInstance.getInstance().updateStudent(student))
-                        JOptionPane.showMessageDialog(null, "Student successfully updated", "Update", JOptionPane.INFORMATION_MESSAGE);
+                    //--+ Try to Update the student in the database +--//
+                    try{
+
+                        if(FacadeInstance.getInstance().updateStudent(student))
+                            JOptionPane.showMessageDialog(null, "Student successfully updated", "Update", JOptionPane.INFORMATION_MESSAGE);
+                        else
+                            JOptionPane.showMessageDialog(null, "Error to update the Student", "Update", JOptionPane.ERROR_MESSAGE);
+
+                    } catch (StudentNotFoundException ex){
+
+                        JOptionPane.showMessageDialog(null, ex.getMessage(), "Edit", JOptionPane.ERROR_MESSAGE);
+                        ex.printStackTrace();
+
+                    }
                 }
 
             }
