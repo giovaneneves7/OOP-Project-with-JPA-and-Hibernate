@@ -3,7 +3,7 @@ package br.com.ifba.giovaneneves.oopregistrationproject.view;
 //--+ Imports +--//
 
 import br.com.ifba.giovaneneves.oopregistrationproject.controller.FacadeInstance;
-import br.com.ifba.giovaneneves.oopregistrationproject.controller.DataFormatValidator;
+import br.com.ifba.giovaneneves.oopregistrationproject.util.DataFormatValidator;
 import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.StudentNotFoundException;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
 

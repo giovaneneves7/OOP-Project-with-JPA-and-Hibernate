@@ -4,7 +4,7 @@ package br.com.ifba.giovaneneves.oopregistrationproject.view;
 import br.com.ifba.giovaneneves.oopregistrationproject.controller.FacadeInstance;
 import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.ExistingRegistrationNumberException;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
-import br.com.ifba.giovaneneves.oopregistrationproject.controller.DataFormatValidator;
+import br.com.ifba.giovaneneves.oopregistrationproject.util.DataFormatValidator;
 
 import java.time.LocalDate;
 
@@ -205,7 +205,6 @@ public class RegisterStudentGUI extends javax.swing.JFrame {
      * Collects the contents of the text fields and attempts to register a new student into the database.
      */
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        
         
         String[] textFieldContents = {txtName.getText(), txtRegistrationNumber.getText(), txtGrade1.getText(), txtGrade2.getText(), txtGrade3.getText()};
                                                    
