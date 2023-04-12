@@ -5,24 +5,25 @@ package br.com.ifba.giovaneneves.oopregistrationproject.service;
 import br.com.ifba.giovaneneves.oopregistrationproject.controller.FacadeInstance;
 import br.com.ifba.giovaneneves.oopregistrationproject.dao.StudentDAOImpl;
 import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.ExistingRegistrationNumberException;
+import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.InvalidRegistrationNumberException;
 import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.StudentNotFoundException;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
+
+import lombok.Data;
 
 import java.util.List;
 //--+ END Imports +--//
 
+
+@Data
 public class StudentService {
 
     //----------------------------------{ ATTRIBUTES }----------------------------------//
     private final static String REGISTRATION_NUMBER_ALREADY_EXISTS = "The specified registration number already exists in the database";
     private final static String STUDENT_NOT_FOUND = "The specified student could not be found";
+    private final static String REGISTRATION_NUMBER_INVALID_LENGTH = "The registration number must have exactly 4 digits.";
+
     private final StudentDAOImpl studentDaoImpl;
-
-    //----------------------------------{ GETTERS AND SETTERS }----------------------------------//
-
-    public StudentDAOImpl getStudentDaoImpl() {
-        return studentDaoImpl;
-    }
 
     //----------------------------------{ CONSTRUCTOR }----------------------------------//
 
@@ -38,13 +39,17 @@ public class StudentService {
      * Inserts a student in the database
      * @param student to be added to the database.
      */
-    public boolean saveStudent(Student student) throws ExistingRegistrationNumberException{
+    public boolean saveStudent(Student student) throws ExistingRegistrationNumberException, InvalidRegistrationNumberException {
 
         //--+ Checks if there is already a student with the same enrollment number in the database +--//
         if(FacadeInstance.getInstance().listAllStudents().stream()
                 .anyMatch(s -> s.getRegistrationNumber().equals(student.getRegistrationNumber())))
                     throw new ExistingRegistrationNumberException(REGISTRATION_NUMBER_ALREADY_EXISTS);
-        
+
+        //--+ Checks that the license plate number has only 4 digits +--//
+        if(student.getRegistrationNumber().length() > 4)
+            throw new InvalidRegistrationNumberException(REGISTRATION_NUMBER_INVALID_LENGTH);
+
         return this.getStudentDaoImpl().save(student);
 
     }
