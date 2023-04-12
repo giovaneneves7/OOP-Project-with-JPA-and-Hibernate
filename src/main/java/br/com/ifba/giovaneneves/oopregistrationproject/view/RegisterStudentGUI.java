@@ -3,6 +3,7 @@ package br.com.ifba.giovaneneves.oopregistrationproject.view;
 //--+ Imports +--//
 import br.com.ifba.giovaneneves.oopregistrationproject.controller.FacadeInstance;
 import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.ExistingRegistrationNumberException;
+import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.InvalidRegistrationNumberException;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
 import br.com.ifba.giovaneneves.oopregistrationproject.util.DataFormatValidator;
 
@@ -254,6 +255,11 @@ public class RegisterStudentGUI extends javax.swing.JFrame {
                     } catch(ExistingRegistrationNumberException ex){
 
                         JOptionPane.showMessageDialog(null,  ex.getMessage(), "Registration", JOptionPane.ERROR_MESSAGE);
+                        ex.printStackTrace();
+
+                    } catch (InvalidRegistrationNumberException ex){
+
+                        JOptionPane.showMessageDialog(null, ex.getMessage(), "REgistration", JOptionPane.ERROR_MESSAGE);
                         ex.printStackTrace();
 
                     }
