@@ -2,7 +2,9 @@ package br.com.ifba.giovaneneves.oopregistrationproject.service;
 
 //--+ Imports +--//
 
+import br.com.ifba.giovaneneves.oopregistrationproject.controller.FacadeInstance;
 import br.com.ifba.giovaneneves.oopregistrationproject.dao.StudentDAOImpl;
+import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.ExistingRegistrationNumberException;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
 
 import java.util.List;
@@ -11,7 +13,7 @@ import java.util.List;
 public class StudentService {
 
     //----------------------------------{ ATTRIBUTES }----------------------------------//
-
+    private final static String REGISTRATION_NUMBER_ALREADY_EXISTS = "The specified license plate number already exists in the database";
     private final StudentDAOImpl studentDaoImpl;
 
     //----------------------------------{ GETTERS AND SETTERS }----------------------------------//
@@ -31,10 +33,14 @@ public class StudentService {
 
     /**
      *
-     * Inserts a student int the database
+     * Inserts a student in the database
      * @param student to be added to the database.
      */
-    public boolean saveStudent(Student student){
+    public boolean saveStudent(Student student) throws ExistingRegistrationNumberException{
+
+        if(FacadeInstance.getInstance().listAllStudents().stream()
+                .anyMatch(s -> s.getRegistrationNumber().equals(student.getRegistrationNumber())))
+                    throw new ExistingRegistrationNumberException(REGISTRATION_NUMBER_ALREADY_EXISTS);
 
         return this.getStudentDaoImpl().save(student);
 
