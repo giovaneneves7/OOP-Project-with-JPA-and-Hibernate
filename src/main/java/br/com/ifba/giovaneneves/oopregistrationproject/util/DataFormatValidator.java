@@ -1,4 +1,4 @@
-package br.com.ifba.giovaneneves.oopregistrationproject.controller;
+package br.com.ifba.giovaneneves.oopregistrationproject.util;
 
 //--+ Imports +--//
 import java.time.LocalDate;
@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author GiovaneNeves
  */
 public class DataFormatValidator {
-    
+
     /**
      * 
      * @param textFieldContent with the text to be checked.
