@@ -44,8 +44,7 @@ public class StudentService {
         if(FacadeInstance.getInstance().listAllStudents().stream()
                 .anyMatch(s -> s.getRegistrationNumber().equals(student.getRegistrationNumber())))
                     throw new ExistingRegistrationNumberException(REGISTRATION_NUMBER_ALREADY_EXISTS);
-
-
+        
         return this.getStudentDaoImpl().save(student);
 
     }
