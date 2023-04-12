@@ -1,5 +1,7 @@
 package br.com.ifba.giovaneneves.oopregistrationproject.controller;
 
+import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.ExistingRegistrationNumberException;
+import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.StudentNotFoundException;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
 
 import java.util.List;
@@ -12,7 +14,7 @@ public interface IFacade {
      * Inserts a student int the database
      * @param student to be added to the database.
      */
-    boolean saveStudent(Student student);
+    boolean saveStudent(Student student) throws ExistingRegistrationNumberException;
 
     /**
      *
@@ -20,7 +22,7 @@ public interface IFacade {
      * @param id of the student to be searched.
      * @return student with the specified ID, null otherwise.
      */
-    Student findStudentById(int id);
+    Student findStudentById(int id) throws StudentNotFoundException;
 
     /**
      * List all students.
@@ -33,7 +35,7 @@ public interface IFacade {
      * @param id of the student to be removed from the database.
      * @return true if the student exists, false otherwise.
      */
-    boolean removeStudent(int id);
+    boolean removeStudent(int id) throws StudentNotFoundException;
 
     /**
      *

@@ -1,6 +1,8 @@
 package br.com.ifba.giovaneneves.oopregistrationproject.controller;
 
 //--+ Imports +--//
+import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.ExistingRegistrationNumberException;
+import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.StudentNotFoundException;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
 import br.com.ifba.giovaneneves.oopregistrationproject.service.StudentService;
 
@@ -20,7 +22,7 @@ public class Facade implements IFacade{
      * @param student to be added to the database.
      */
     @Override
-    public boolean saveStudent(Student student) {
+    public boolean saveStudent(Student student) throws ExistingRegistrationNumberException {
         return studentService.saveStudent(student);
     }
 
@@ -31,7 +33,7 @@ public class Facade implements IFacade{
      * @return student with the specified ID, null otherwise.
      */
     @Override
-    public Student findStudentById(int id) {
+    public Student findStudentById(int id) throws StudentNotFoundException {
         return studentService.findStudentById(id);
     }
 
@@ -50,7 +52,7 @@ public class Facade implements IFacade{
      * @return true if the student exists, false otherwise.
      */
     @Override
-    public boolean removeStudent(int id) {
+    public boolean removeStudent(int id) throws StudentNotFoundException {
         return studentService.removeStudent(id);
     }
 
