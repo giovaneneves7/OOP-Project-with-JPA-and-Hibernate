@@ -2,6 +2,7 @@ package br.com.ifba.giovaneneves.oopregistrationproject.view;
 
 //--+ Imports +--//
 import br.com.ifba.giovaneneves.oopregistrationproject.controller.FacadeInstance;
+import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.ExistingRegistrationNumberException;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
 import br.com.ifba.giovaneneves.oopregistrationproject.controller.DataFormatValidator;
 
@@ -246,9 +247,17 @@ public class RegisterStudentGUI extends javax.swing.JFrame {
                     newStudent.setAverageGrades(average);
 
                     //--+ Registers the new student in the database +--//
-                    if(FacadeInstance.getInstance().saveStudent(newStudent))
+                    try{
+
+                        FacadeInstance.getInstance().saveStudent(newStudent);
                         JOptionPane.showMessageDialog(null, "Student successfully registered", "Registration", JOptionPane.INFORMATION_MESSAGE);
-                    
+
+                    } catch(ExistingRegistrationNumberException ex){
+
+                        JOptionPane.showMessageDialog(null,  ex.getMessage(), "Registration", JOptionPane.ERROR_MESSAGE);
+                        ex.printStackTrace();
+
+                    }
                 }
                 
             }
