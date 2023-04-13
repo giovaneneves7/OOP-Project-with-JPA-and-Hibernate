@@ -2,6 +2,7 @@ package br.com.ifba.giovaneneves.oopregistrationproject.controller;
 
 //--+ Imports +--//
 import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.ExistingRegistrationNumberException;
+import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.InvalidAgeException;
 import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.InvalidRegistrationNumberException;
 import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.StudentNotFoundException;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
@@ -23,7 +24,7 @@ public class Facade implements IFacade{
      * @param student to be added to the database.
      */
     @Override
-    public boolean saveStudent(Student student) throws ExistingRegistrationNumberException, InvalidRegistrationNumberException {
+    public boolean saveStudent(Student student) throws ExistingRegistrationNumberException, InvalidRegistrationNumberException, InvalidAgeException {
         return studentService.saveStudent(student);
     }
 

@@ -1,6 +1,7 @@
 package br.com.ifba.giovaneneves.oopregistrationproject.controller;
 
 import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.ExistingRegistrationNumberException;
+import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.InvalidAgeException;
 import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.InvalidRegistrationNumberException;
 import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.StudentNotFoundException;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
@@ -15,7 +16,7 @@ public interface IFacade {
      * Inserts a student int the database
      * @param student to be added to the database.
      */
-    boolean saveStudent(Student student) throws ExistingRegistrationNumberException, InvalidRegistrationNumberException;
+    boolean saveStudent(Student student) throws ExistingRegistrationNumberException, InvalidRegistrationNumberException, InvalidAgeException;
 
     /**
      *
