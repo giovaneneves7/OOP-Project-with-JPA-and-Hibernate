@@ -2,7 +2,6 @@ package br.com.ifba.giovaneneves.oopregistrationproject.service;
 
 //--+ Imports +--//
 
-import br.com.ifba.giovaneneves.oopregistrationproject.controller.FacadeInstance;
 import br.com.ifba.giovaneneves.oopregistrationproject.dao.StudentDAOImpl;
 import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.ExistingRegistrationNumberException;
 import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.InvalidAgeException;
@@ -44,7 +43,7 @@ public class StudentService {
     public boolean saveStudent(Student student) throws ExistingRegistrationNumberException, InvalidRegistrationNumberException, InvalidAgeException {
 
         //--+ Checks if there is already a student with the same enrollment number in the database +--//
-        if(FacadeInstance.getInstance().listAllStudents().stream()
+        if(studentDaoImpl.listStudents().stream()
                 .anyMatch(s -> s.getRegistrationNumber().equals(student.getRegistrationNumber())))
                     throw new ExistingRegistrationNumberException(REGISTRATION_NUMBER_ALREADY_EXISTS);
 
@@ -112,7 +111,7 @@ public class StudentService {
     public boolean updateStudent(Student student) throws StudentNotFoundException{
 
         //--+ Checks if the student is contained in the database +--//
-        if(!FacadeInstance.getInstance().listAllStudents().contains(student))
+        if(!studentDaoImpl.listStudents().contains(student))
             throw new StudentNotFoundException(STUDENT_NOT_FOUND);
 
         return this.getStudentDaoImpl().update(student);
