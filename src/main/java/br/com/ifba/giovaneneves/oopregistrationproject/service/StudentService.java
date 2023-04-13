@@ -5,12 +5,14 @@ package br.com.ifba.giovaneneves.oopregistrationproject.service;
 import br.com.ifba.giovaneneves.oopregistrationproject.controller.FacadeInstance;
 import br.com.ifba.giovaneneves.oopregistrationproject.dao.StudentDAOImpl;
 import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.ExistingRegistrationNumberException;
+import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.InvalidAgeException;
 import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.InvalidRegistrationNumberException;
 import br.com.ifba.giovaneneves.oopregistrationproject.exceptions.student.StudentNotFoundException;
 import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
 
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.List;
 //--+ END Imports +--//
 
@@ -22,7 +24,7 @@ public class StudentService {
     private final static String REGISTRATION_NUMBER_ALREADY_EXISTS = "The specified registration number already exists in the database";
     private final static String STUDENT_NOT_FOUND = "The specified student could not be found";
     private final static String REGISTRATION_NUMBER_INVALID_LENGTH = "The registration number must have exactly 4 digits.";
-
+    private final static String INVALID_AGE = "The student must be 13 years or older to be registered";
     private final StudentDAOImpl studentDaoImpl;
 
     //----------------------------------{ CONSTRUCTOR }----------------------------------//
@@ -39,7 +41,7 @@ public class StudentService {
      * Inserts a student in the database
      * @param student to be added to the database.
      */
-    public boolean saveStudent(Student student) throws ExistingRegistrationNumberException, InvalidRegistrationNumberException {
+    public boolean saveStudent(Student student) throws ExistingRegistrationNumberException, InvalidRegistrationNumberException, InvalidAgeException {
 
         //--+ Checks if there is already a student with the same enrollment number in the database +--//
         if(FacadeInstance.getInstance().listAllStudents().stream()
@@ -49,6 +51,10 @@ public class StudentService {
         //--+ Checks that the license plate number has only 4 digits +--//
         if(student.getRegistrationNumber().length() > 4)
             throw new InvalidRegistrationNumberException(REGISTRATION_NUMBER_INVALID_LENGTH);
+
+        //--+ Checks if the student is older than 13  +--//
+        if((LocalDate.now().getYear() - student.getBirthDate().getYear()) < 13)
+            throw new InvalidAgeException(INVALID_AGE);
 
         return this.getStudentDaoImpl().save(student);
 
