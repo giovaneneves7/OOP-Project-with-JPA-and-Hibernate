@@ -1,4 +1,6 @@
+//--+ Package +--//
 package br.com.ifba.giovaneneves.oopregistrationproject.service;
+//--+ END Package +--//
 
 //--+ Imports +--//
 
@@ -12,10 +14,13 @@ import br.com.ifba.giovaneneves.oopregistrationproject.model.Student;
 import lombok.Data;
 
 import java.time.LocalDate;
+
 import java.util.List;
 //--+ END Imports +--//
 
-
+/**
+ * @author GiovaneNeves
+ */
 @Data
 public class StudentService {
 
